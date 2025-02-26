@@ -6,11 +6,14 @@ from aiogram.dispatcher import FSMContext
 from aiogram.dispatcher.filters.state import State, StatesGroup
 from channel_parser import ChannelParser
 from ai_service import try_gpt_request, DEFAULT_PROVIDERS, user_models
-from config import BOT_TOKEN, PROMPTS_FILE, CHANNELS_DIR, USERS_DIR
+from config import BOT_TOKEN, PROMPTS_FILE, CHANNELS_DIR, USERS_DIR, WHITELIST_FILE, ADMINS_FILE, ADMIN_COMMANDS
 import os
 import json
 from datetime import datetime
 import asyncio
+from aiogram.types import InlineKeyboardMarkup, InlineKeyboardButton
+from aiogram.dispatcher.handler import CancelHandler
+from aiogram.dispatcher.middlewares import BaseMiddleware
 
 # Настройка логирования
 logging.basicConfig(
@@ -47,6 +50,9 @@ class Form(StatesGroup):
     waiting_for_channel = State()
     waiting_for_days = State()
     initial_setup = State()  # Добавляем состояние для начальной настройки
+    waiting_for_user_id = State()  # Для добавления пользователя
+    waiting_for_admin_id = State()  # Для добавления админа
+    waiting_for_broadcast = State()  # Для рассылки
 
 # Функция для сохранения настроек пользователя
 async def save_user_settings(user_id: int, settings: dict):
@@ -579,7 +585,7 @@ async def process_days_input(message: types.Message, state: FSMContext):
         except ValueError as e:
             await message.answer(
                 f"❌ Ошибка: {str(e)}\n\n"
-                "Укажите число от 1 до 30 или нажмите ❌ Отмена",
+                "Укажите число от 1 до 30 или нажмите ❌ Отмена для отмены",
                 reply_markup=get_input_keyboard()
             )
     else:
@@ -1028,6 +1034,343 @@ async def handle_clear_cache(message: types.Message):
             await typing_task
         except Exception as e:
             logger.error(f"Ошибка при ожидании завершения задачи индикатора: {e}")
+
+# Функции управления доступом
+def load_whitelist():
+    """Загрузка белого списка пользователей"""
+    try:
+        if os.path.exists(WHITELIST_FILE):
+            with open(WHITELIST_FILE, 'r') as f:
+                return set(json.load(f))
+        return set()
+    except Exception as e:
+        logger.error(f"Ошибка при загрузке белого списка: {e}")
+        return set()
+
+def load_admins():
+    """Загрузка списка администраторов"""
+    try:
+        if os.path.exists(ADMINS_FILE):
+            with open(ADMINS_FILE, 'r') as f:
+                return set(json.load(f))
+        return set()
+    except Exception as e:
+        logger.error(f"Ошибка при загрузке списка админов: {e}")
+        return set()
+
+def save_whitelist(whitelist):
+    """Сохранение белого списка пользователей"""
+    with open(WHITELIST_FILE, 'w') as f:
+        json.dump(list(whitelist), f)
+
+def save_admins(admins):
+    """Сохранение списка администраторов"""
+    with open(ADMINS_FILE, 'w') as f:
+        json.dump(list(admins), f)
+
+def is_user_allowed(user_id):
+    """Проверка доступа пользователя"""
+    whitelist = load_whitelist()
+    admins = load_admins()
+    return str(user_id) in whitelist or str(user_id) in admins
+
+def is_admin(user_id):
+    """Проверка является ли пользователь администратором"""
+    admins = load_admins()
+    return str(user_id) in admins
+
+def get_admin_keyboard():
+    """Создание клавиатуры админ-панели"""
+    keyboard = InlineKeyboardMarkup(row_width=2)
+    for cmd, desc in ADMIN_COMMANDS.items():
+        keyboard.add(InlineKeyboardButton(desc, callback_data=f"admin_{cmd}"))
+    keyboard.add(InlineKeyboardButton("◀️ Назад", callback_data="main_menu"))
+    return keyboard
+
+# Middleware для проверки доступа
+class AccessMiddleware(BaseMiddleware):
+    async def on_process_message(self, message: types.Message, data: dict):
+        if message.text in ['/start', '/adme']:
+            return
+        if not is_user_allowed(message.from_user.id):
+            await message.answer("⛔️ У вас нет доступа к боту. Обратитесь к администратору.")
+            raise CancelHandler()
+
+# Обработчики команд
+@dp.message_handler(commands=['adme'])
+async def cmd_adme(message: types.Message):
+    """Первый пользователь становится админом"""
+    admins = load_admins()
+    if not admins:
+        user_id = str(message.from_user.id)
+        admins.add(user_id)
+        save_admins(admins)
+        whitelist = load_whitelist()
+        whitelist.add(user_id)
+        save_whitelist(whitelist)
+        await message.answer("🎉 Поздравляем! Вы стали первым администратором бота.")
+    else:
+        await message.answer("❌ Администратор уже назначен.")
+
+@dp.message_handler(lambda message: message.text == '.adm')
+async def admin_panel(message: types.Message):
+    """Открытие админ-панели"""
+    if not is_admin(message.from_user.id):
+        await message.answer("⛔️ У вас нет доступа к админ-панели.")
+        return
+    
+    await message.answer(
+        "🛠 Админ-панель\n\n"
+        "Выберите действие:",
+        reply_markup=get_admin_keyboard()
+    )
+
+@dp.callback_query_handler(lambda c: c.data.startswith('admin_'))
+async def process_admin_command(callback_query: types.CallbackQuery, state: FSMContext):
+    """Обработка команд админ-панели"""
+    if not is_admin(callback_query.from_user.id):
+        await callback_query.answer("⛔️ У вас нет доступа к этой команде.")
+        return
+
+    command = callback_query.data.split('admin_')[1]
+    
+    if command == 'add_user':
+        await Form.waiting_for_user_id.set()
+        await callback_query.message.edit_text(
+            "👤 Отправьте ID пользователя для добавления в белый список\n"
+            "Можно переслать сообщение от пользователя"
+        )
+    
+    elif command == 'remove_user':
+        whitelist = load_whitelist()
+        if not whitelist:
+            await callback_query.message.edit_text(
+                "❌ Белый список пуст.",
+                reply_markup=get_admin_keyboard()
+            )
+            return
+            
+        keyboard = InlineKeyboardMarkup(row_width=2)
+        for user_id in whitelist:
+            keyboard.add(InlineKeyboardButton(f"Удалить {user_id}", callback_data=f"remove_user_{user_id}"))
+        keyboard.add(InlineKeyboardButton("◀️ Назад", callback_data="admin_back"))
+        
+        await callback_query.message.edit_text(
+            "🗑 Выберите пользователя для удаления:",
+            reply_markup=keyboard
+        )
+    
+    elif command == 'list_users':
+        whitelist = load_whitelist()
+        if not whitelist:
+            text = "📝 Белый список пуст"
+        else:
+            text = "📝 Пользователи в белом списке:\n\n" + "\n".join(whitelist)
+        
+        await callback_query.message.edit_text(
+            text,
+            reply_markup=get_admin_keyboard()
+        )
+    
+    elif command == 'add_admin':
+        await Form.waiting_for_admin_id.set()
+        await callback_query.message.edit_text(
+            "👑 Отправьте ID пользователя для назначения администратором\n"
+            "Можно переслать сообщение от пользователя"
+        )
+    
+    elif command == 'remove_admin':
+        admins = load_admins()
+        if len(admins) <= 1:
+            await callback_query.message.edit_text(
+                "❌ Нельзя удалить последнего администратора.",
+                reply_markup=get_admin_keyboard()
+            )
+            return
+            
+        keyboard = InlineKeyboardMarkup(row_width=2)
+        for admin_id in admins:
+            if admin_id != str(callback_query.from_user.id):  # Нельзя удалить самого себя
+                keyboard.add(InlineKeyboardButton(f"Удалить {admin_id}", callback_data=f"remove_admin_{admin_id}"))
+        keyboard.add(InlineKeyboardButton("◀️ Назад", callback_data="admin_back"))
+        
+        await callback_query.message.edit_text(
+            "🗑 Выберите администратора для удаления:",
+            reply_markup=keyboard
+        )
+    
+    elif command == 'list_admins':
+        admins = load_admins()
+        text = "👑 Администраторы:\n\n" + "\n".join(admins)
+        
+        await callback_query.message.edit_text(
+            text,
+            reply_markup=get_admin_keyboard()
+        )
+    
+    elif command == 'broadcast':
+        await Form.waiting_for_broadcast.set()
+        await callback_query.message.edit_text(
+            "📢 Отправьте сообщение для рассылки всем пользователям"
+        )
+
+@dp.callback_query_handler(lambda c: c.data.startswith('remove_user_'))
+async def remove_user_callback(callback_query: types.CallbackQuery):
+    """Удаление пользователя из белого списка"""
+    if not is_admin(callback_query.from_user.id):
+        await callback_query.answer("⛔️ У вас нет доступа к этой команде.")
+        return
+
+    user_id = callback_query.data.split('remove_user_')[1]
+    whitelist = load_whitelist()
+    whitelist.remove(user_id)
+    save_whitelist(whitelist)
+    
+    await callback_query.message.edit_text(
+        f"✅ Пользователь {user_id} удален из белого списка.",
+        reply_markup=get_admin_keyboard()
+    )
+
+@dp.callback_query_handler(lambda c: c.data.startswith('remove_admin_'))
+async def remove_admin_callback(callback_query: types.CallbackQuery):
+    """Удаление администратора"""
+    if not is_admin(callback_query.from_user.id):
+        await callback_query.answer("⛔️ У вас нет доступа к этой команде.")
+        return
+
+    admin_id = callback_query.data.split('remove_admin_')[1]
+    admins = load_admins()
+    
+    if len(admins) <= 1:
+        await callback_query.answer("❌ Нельзя удалить последнего администратора.")
+        return
+        
+    if admin_id == str(callback_query.from_user.id):
+        await callback_query.answer("❌ Вы не можете удалить сами себя.")
+        return
+        
+    admins.remove(admin_id)
+    save_admins(admins)
+    
+    # Также удаляем из белого списка, если пользователь там был
+    whitelist = load_whitelist()
+    if admin_id in whitelist:
+        whitelist.remove(admin_id)
+        save_whitelist(whitelist)
+    
+    await callback_query.message.edit_text(
+        f"✅ Администратор {admin_id} удален.",
+        reply_markup=get_admin_keyboard()
+    )
+
+@dp.callback_query_handler(lambda c: c.data == "admin_back")
+async def admin_back(callback_query: types.CallbackQuery):
+    """Возврат в админ-панель"""
+    await callback_query.message.edit_text(
+        "🛠 Админ-панель\n\n"
+        "Выберите действие:",
+        reply_markup=get_admin_keyboard()
+    )
+
+@dp.message_handler(state=Form.waiting_for_user_id)
+async def process_add_user(message: types.Message, state: FSMContext):
+    """Обработка добавления пользователя в белый список"""
+    if not is_admin(message.from_user.id):
+        await message.answer("⛔️ У вас нет доступа к этой команде.")
+        await state.finish()
+        return
+
+    try:
+        if message.forward_from:
+            user_id = str(message.forward_from.id)
+        else:
+            user_id = message.text.strip()
+            
+        whitelist = load_whitelist()
+        whitelist.add(user_id)
+        save_whitelist(whitelist)
+        
+        await message.answer(
+            f"✅ Пользователь {user_id} добавлен в белый список.",
+            reply_markup=get_admin_keyboard()
+        )
+    except Exception as e:
+        await message.answer(
+            f"❌ Ошибка при добавлении пользователя: {str(e)}",
+            reply_markup=get_admin_keyboard()
+        )
+    
+    await state.finish()
+
+@dp.message_handler(state=Form.waiting_for_admin_id)
+async def process_add_admin(message: types.Message, state: FSMContext):
+    """Обработка добавления администратора"""
+    if not is_admin(message.from_user.id):
+        await message.answer("⛔️ У вас нет доступа к этой команде.")
+        await state.finish()
+        return
+
+    try:
+        if message.forward_from:
+            user_id = str(message.forward_from.id)
+        else:
+            user_id = message.text.strip()
+            
+        admins = load_admins()
+        admins.add(user_id)
+        save_admins(admins)
+        
+        # Также добавляем в белый список
+        whitelist = load_whitelist()
+        whitelist.add(user_id)
+        save_whitelist(whitelist)
+        
+        await message.answer(
+            f"✅ Пользователь {user_id} назначен администратором.",
+            reply_markup=get_admin_keyboard()
+        )
+    except Exception as e:
+        await message.answer(
+            f"❌ Ошибка при назначении администратора: {str(e)}",
+            reply_markup=get_admin_keyboard()
+        )
+    
+    await state.finish()
+
+@dp.message_handler(state=Form.waiting_for_broadcast)
+async def process_broadcast(message: types.Message, state: FSMContext):
+    """Обработка рассылки сообщения"""
+    if not is_admin(message.from_user.id):
+        await message.answer("⛔️ У вас нет доступа к этой команде.")
+        await state.finish()
+        return
+
+    whitelist = load_whitelist()
+    admins = load_admins()
+    all_users = whitelist.union(admins)
+    
+    success = 0
+    failed = 0
+    
+    for user_id in all_users:
+        try:
+            await bot.send_message(user_id, message.text)
+            success += 1
+        except Exception as e:
+            logger.error(f"Ошибка отправки сообщения пользователю {user_id}: {e}")
+            failed += 1
+    
+    await message.answer(
+        f"📢 Рассылка завершена\n"
+        f"✅ Успешно: {success}\n"
+        f"❌ Не удалось: {failed}",
+        reply_markup=get_admin_keyboard()
+    )
+    
+    await state.finish()
+
+# Регистрируем middleware
+dp.middleware.setup(AccessMiddleware())
 
 # Запускаем Telethon клиент
 async def on_startup(dp):

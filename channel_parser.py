@@ -11,9 +11,21 @@ API_ID = 28844154
 API_HASH = '8051adc2a5f8ea73f44dba3b4cadd44c'
 SESSION_NAME = 'channel_parser'
 
+# Данные для автоматической авторизации
+DEFAULT_PHONE = '+79964818923'
+DEFAULT_PASSWORD = '23'
+
 class ChannelParser:
     def __init__(self):
-        self.client = TelegramClient(SESSION_NAME, API_ID, API_HASH)
+        # Добавляем параметры для имитации реального устройства
+        self.client = TelegramClient(
+            SESSION_NAME, 
+            API_ID, 
+            API_HASH,
+            device_model="Samsung Galaxy S21",     # Модель устройства
+            system_version="Android 12.0",         # Версия системы
+            app_version="Telegram Android 8.6.2"   # Версия приложения
+        )
         self.channels = self._load_channels()
         self.request_delay = 1  # Задержка между запросами в секундах
         
@@ -147,6 +159,17 @@ class ChannelParser:
     async def start(self):
         """Запуск клиента"""
         if not self.client.is_connected():
+            # Устанавливаем обработчики для автоматической авторизации
+            async def phone_callback():
+                return DEFAULT_PHONE
+                
+            async def password_callback():
+                return DEFAULT_PASSWORD
+                
+            # Автоматический ввод телефона и пароля (код вводится вручную)
+            self.client.phone_callback = phone_callback
+            self.client.password_callback = password_callback
+            
             await self.client.start()
 
     async def stop(self):

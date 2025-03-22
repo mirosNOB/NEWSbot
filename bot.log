@@ -3481,3 +3481,804 @@ aiogram.utils.exceptions.NetworkError: Aiohttp client throws an error: ClientCon
 2025-02-26 11:04:25,433 - __main__ - INFO - Получен ответ от AI
 2025-02-26 11:04:28,585 - __main__ - INFO - Ответ успешно отправлен пользователю 6993241176
 2025-02-26 11:04:28,586 - __main__ - INFO - Обработка завершена для пользователя 6993241176
+2025-03-22 02:34:46,494 - __main__ - INFO - Остановка бота...
+2025-03-22 02:34:46,495 - __main__ - INFO - ✅ Telethon клиент остановлен
+2025-03-22 02:34:46,495 - __main__ - INFO - ✅ Бот успешно остановлен
+2025-03-22 02:34:46,495 - aiogram - WARNING - Goodbye!
+2025-03-22 02:34:57,760 - __main__ - INFO - Остановка бота...
+2025-03-22 02:34:57,760 - __main__ - INFO - ✅ Telethon клиент остановлен
+2025-03-22 02:34:57,760 - __main__ - INFO - ✅ Бот успешно остановлен
+2025-03-22 02:34:57,761 - aiogram - WARNING - Goodbye!
+2025-03-22 02:35:33,195 - __main__ - INFO - Остановка бота...
+2025-03-22 02:35:33,195 - __main__ - INFO - ✅ Telethon клиент остановлен
+2025-03-22 02:35:33,195 - __main__ - INFO - ✅ Бот успешно остановлен
+2025-03-22 02:35:33,196 - aiogram - WARNING - Goodbye!
+2025-03-22 02:39:43,971 - __main__ - INFO - Остановка бота...
+2025-03-22 02:39:43,971 - __main__ - INFO - ✅ Telethon клиент остановлен
+2025-03-22 02:39:43,972 - __main__ - INFO - ✅ Бот успешно остановлен
+2025-03-22 02:39:43,972 - aiogram - WARNING - Goodbye!
+2025-03-22 02:39:53,672 - __main__ - INFO - Остановка бота...
+2025-03-22 02:39:53,672 - __main__ - INFO - ✅ Telethon клиент остановлен
+2025-03-22 02:39:53,672 - __main__ - INFO - ✅ Бот успешно остановлен
+2025-03-22 02:39:53,673 - aiogram - WARNING - Goodbye!
+2025-03-22 02:40:28,189 - aiogram - INFO - Bot: v0 UserBot_1734901968 [@v0_userbot_1734901971_bot]
+2025-03-22 02:40:28,301 - aiogram - WARNING - Updates were skipped successfully.
+2025-03-22 02:40:28,301 - __main__ - INFO - Запуск бота...
+2025-03-22 02:40:28,301 - telethon.network.mtprotosender - INFO - Connecting to 149.154.167.51:443/TcpFull...
+2025-03-22 02:40:29,603 - telethon.network.mtprotosender - INFO - Connection to 149.154.167.51:443/TcpFull complete!
+2025-03-22 02:42:50,467 - aiogram - INFO - Bot: v0 UserBot_1734901968 [@v0_userbot_1734901971_bot]
+2025-03-22 02:42:50,575 - aiogram - WARNING - Updates were skipped successfully.
+2025-03-22 02:42:50,575 - __main__ - INFO - Запуск бота...
+2025-03-22 02:42:50,575 - telethon.network.mtprotosender - INFO - Connecting to 149.154.167.51:443/TcpFull...
+2025-03-22 02:42:50,624 - telethon.network.mtprotosender - INFO - Connection to 149.154.167.51:443/TcpFull complete!
+2025-03-22 02:43:15,936 - __main__ - INFO - Остановка бота...
+2025-03-22 02:43:15,937 - telethon.network.mtprotosender - INFO - Disconnecting from 149.154.167.51:443/TcpFull...
+2025-03-22 02:43:15,937 - telethon.network.mtprotosender - INFO - Disconnection from 149.154.167.51:443/TcpFull complete!
+2025-03-22 02:43:15,943 - __main__ - INFO - ✅ Telethon клиент остановлен
+2025-03-22 02:43:15,943 - __main__ - INFO - ✅ Бот успешно остановлен
+2025-03-22 02:43:15,944 - aiogram - WARNING - Goodbye!
+2025-03-22 02:43:20,116 - aiogram - INFO - Bot: v0 UserBot_1734901968 [@v0_userbot_1734901971_bot]
+2025-03-22 02:43:20,208 - aiogram - WARNING - Updates were skipped successfully.
+2025-03-22 02:43:20,208 - __main__ - INFO - Запуск бота...
+2025-03-22 02:43:20,208 - telethon.network.mtprotosender - INFO - Connecting to 149.154.167.51:443/TcpFull...
+2025-03-22 02:43:20,254 - telethon.network.mtprotosender - INFO - Connection to 149.154.167.51:443/TcpFull complete!
+2025-03-22 02:43:21,577 - __main__ - INFO - Остановка бота...
+2025-03-22 02:43:21,578 - telethon.network.mtprotosender - INFO - Disconnecting from 149.154.167.51:443/TcpFull...
+2025-03-22 02:43:21,578 - telethon.network.mtprotosender - INFO - Disconnection from 149.154.167.51:443/TcpFull complete!
+2025-03-22 02:43:21,583 - __main__ - INFO - ✅ Telethon клиент остановлен
+2025-03-22 02:43:21,583 - __main__ - INFO - ✅ Бот успешно остановлен
+2025-03-22 02:43:21,583 - aiogram - WARNING - Goodbye!
+2025-03-22 02:43:40,560 - aiogram - INFO - Bot: v0 UserBot_1734901968 [@v0_userbot_1734901971_bot]
+2025-03-22 02:43:40,654 - aiogram - WARNING - Updates were skipped successfully.
+2025-03-22 02:43:40,654 - __main__ - INFO - Запуск бота...
+2025-03-22 02:43:40,655 - telethon.network.mtprotosender - INFO - Connecting to 149.154.167.51:443/TcpFull...
+2025-03-22 02:43:40,704 - telethon.network.mtprotosender - INFO - Connection to 149.154.167.51:443/TcpFull complete!
+2025-03-22 02:51:24,058 - aiogram - INFO - Bot: v0 UserBot_1734901968 [@v0_userbot_1734901971_bot]
+2025-03-22 02:51:24,152 - aiogram - WARNING - Updates were skipped successfully.
+2025-03-22 02:51:24,152 - __main__ - INFO - Запуск бота...
+2025-03-22 02:51:24,152 - __main__ - ERROR - ❌ Ошибка при запуске бота: No phone number or bot token provided.
+Traceback (most recent call last):
+  File "/home/derxywat/NEWSbot/main.py", line 1380, in on_startup
+    await channel_parser.start()
+  File "/home/derxywat/NEWSbot/channel_parser.py", line 159, in start
+    await self.client.start(phone=None)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/derxywat/NEWSbot/venv3.11/lib64/python3.11/site-packages/telethon/client/auth.py", line 110, in start
+    raise ValueError('No phone number or bot token provided.')
+ValueError: No phone number or bot token provided.
+2025-03-22 02:51:24,154 - aiogram.dispatcher.dispatcher - INFO - Start polling.
+2025-03-22 02:51:29,295 - __main__ - INFO - Остановка бота...
+2025-03-22 02:51:29,296 - __main__ - INFO - ✅ Telethon клиент остановлен
+2025-03-22 02:51:29,296 - __main__ - INFO - ✅ Бот успешно остановлен
+2025-03-22 02:51:29,296 - aiogram.dispatcher.dispatcher - INFO - Stop polling...
+2025-03-22 02:51:29,296 - aiogram - WARNING - Goodbye!
+2025-03-22 02:51:32,362 - aiogram - INFO - Bot: v0 UserBot_1734901968 [@v0_userbot_1734901971_bot]
+2025-03-22 02:51:32,476 - aiogram - WARNING - Updates were skipped successfully.
+2025-03-22 02:51:32,476 - __main__ - INFO - Запуск бота...
+2025-03-22 02:51:32,476 - __main__ - ERROR - ❌ Ошибка при запуске бота: No phone number or bot token provided.
+Traceback (most recent call last):
+  File "/home/derxywat/NEWSbot/main.py", line 1380, in on_startup
+    await channel_parser.start()
+  File "/home/derxywat/NEWSbot/channel_parser.py", line 159, in start
+    await self.client.start(phone=None)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/derxywat/NEWSbot/venv3.11/lib64/python3.11/site-packages/telethon/client/auth.py", line 110, in start
+    raise ValueError('No phone number or bot token provided.')
+ValueError: No phone number or bot token provided.
+2025-03-22 02:51:32,478 - aiogram.dispatcher.dispatcher - INFO - Start polling.
+2025-03-22 02:51:36,564 - __main__ - INFO - Остановка бота...
+2025-03-22 02:51:36,565 - __main__ - INFO - ✅ Telethon клиент остановлен
+2025-03-22 02:51:36,565 - __main__ - INFO - ✅ Бот успешно остановлен
+2025-03-22 02:51:36,565 - aiogram.dispatcher.dispatcher - INFO - Stop polling...
+2025-03-22 02:51:36,565 - aiogram - WARNING - Goodbye!
+2025-03-22 02:52:06,602 - aiogram - INFO - Bot: v0 UserBot_1734901968 [@v0_userbot_1734901971_bot]
+2025-03-22 02:52:06,708 - aiogram - WARNING - Updates were skipped successfully.
+2025-03-22 02:52:06,709 - __main__ - INFO - Запуск бота...
+2025-03-22 02:52:06,709 - telethon.network.mtprotosender - INFO - Connecting to 149.154.167.51:443/TcpFull...
+2025-03-22 02:52:06,755 - telethon.network.mtprotosender - INFO - Connection to 149.154.167.51:443/TcpFull complete!
+2025-03-22 02:52:07,000 - __main__ - ERROR - ❌ Ошибка при запуске бота: argument of type 'NoneType' is not iterable
+Traceback (most recent call last):
+  File "/home/derxywat/NEWSbot/main.py", line 1380, in on_startup
+    await channel_parser.start()
+  File "/home/derxywat/NEWSbot/channel_parser.py", line 160, in start
+    await self.client.start(phone=lambda: None)
+  File "/home/derxywat/NEWSbot/venv3.11/lib64/python3.11/site-packages/telethon/client/auth.py", line 169, in _start
+    if ':' in value:
+       ^^^^^^^^^^^^
+TypeError: argument of type 'NoneType' is not iterable
+2025-03-22 02:52:07,001 - aiogram.dispatcher.dispatcher - INFO - Start polling.
+2025-03-22 02:52:11,190 - __main__ - INFO - Остановка бота...
+2025-03-22 02:52:11,191 - telethon.network.mtprotosender - INFO - Disconnecting from 149.154.167.51:443/TcpFull...
+2025-03-22 02:52:11,191 - telethon.network.mtprotosender - INFO - Disconnection from 149.154.167.51:443/TcpFull complete!
+2025-03-22 02:52:11,196 - __main__ - INFO - ✅ Telethon клиент остановлен
+2025-03-22 02:52:11,196 - __main__ - INFO - ✅ Бот успешно остановлен
+2025-03-22 02:52:11,196 - aiogram.dispatcher.dispatcher - INFO - Stop polling...
+2025-03-22 02:52:11,196 - aiogram - WARNING - Goodbye!
+2025-03-22 02:53:40,498 - aiogram - INFO - Bot: v0 UserBot_1734901968 [@v0_userbot_1734901971_bot]
+2025-03-22 02:53:40,620 - aiogram - WARNING - Updates were skipped successfully.
+2025-03-22 02:53:40,620 - __main__ - INFO - Запуск бота...
+2025-03-22 02:53:40,620 - telethon.network.mtprotosender - INFO - Connecting to 149.154.167.51:443/TcpFull...
+2025-03-22 02:53:40,682 - telethon.network.mtprotosender - INFO - Connection to 149.154.167.51:443/TcpFull complete!
+2025-03-22 02:53:40,931 - __main__ - INFO - ✅ Telethon клиент успешно запущен
+2025-03-22 02:53:40,931 - __main__ - INFO - ✅ Бот успешно запущен и готов к работе
+2025-03-22 02:53:40,931 - aiogram.dispatcher.dispatcher - INFO - Start polling.
+2025-03-22 02:54:06,494 - __main__ - INFO - Пользователь 7241965595 запустил бота
+2025-03-22 02:54:06,494 - __main__ - INFO - Начало первичной настройки для пользователя 7241965595
+2025-03-22 02:54:13,260 - asyncio - ERROR - Task exception was never retrieved
+future: <Task finished name='Task-18' coro=<Dispatcher._process_polling_updates() done, defined at /home/derxywat/NEWSbot/venv3.11/lib64/python3.11/site-packages/aiogram/dispatcher/dispatcher.py:410> exception=AttributeError("'str' object has no attribute '__name__'")>
+Traceback (most recent call last):
+  File "/home/derxywat/NEWSbot/venv3.11/lib64/python3.11/site-packages/aiogram/dispatcher/dispatcher.py", line 418, in _process_polling_updates
+    for responses in itertools.chain.from_iterable(await self.process_updates(updates, fast)):
+                                                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/derxywat/NEWSbot/venv3.11/lib64/python3.11/site-packages/aiogram/dispatcher/dispatcher.py", line 236, in process_updates
+    return await asyncio.gather(*tasks)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/derxywat/NEWSbot/venv3.11/lib64/python3.11/site-packages/aiogram/dispatcher/handler.py", line 117, in notify
+    response = await handler_obj.handler(*args, **partial_data)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/derxywat/NEWSbot/venv3.11/lib64/python3.11/site-packages/aiogram/dispatcher/dispatcher.py", line 257, in process_update
+    return await self.message_handlers.notify(update.message)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/derxywat/NEWSbot/venv3.11/lib64/python3.11/site-packages/aiogram/dispatcher/handler.py", line 117, in notify
+    response = await handler_obj.handler(*args, **partial_data)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/derxywat/NEWSbot/main.py", line 218, in cmd_start
+    f"{model} ({provider['provider'].__name__})",
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'str' object has no attribute '__name__'
+2025-03-22 02:54:17,841 - __main__ - INFO - Остановка бота...
+2025-03-22 02:54:17,842 - telethon.network.mtprotosender - INFO - Disconnecting from 149.154.167.51:443/TcpFull...
+2025-03-22 02:54:17,842 - telethon.network.mtprotosender - INFO - Disconnection from 149.154.167.51:443/TcpFull complete!
+2025-03-22 02:54:17,850 - __main__ - INFO - ✅ Telethon клиент остановлен
+2025-03-22 02:54:17,850 - __main__ - INFO - ✅ Бот успешно остановлен
+2025-03-22 02:54:17,850 - aiogram.dispatcher.dispatcher - INFO - Stop polling...
+2025-03-22 02:54:17,851 - aiogram - WARNING - Goodbye!
+2025-03-22 17:49:01,235 - aiogram - INFO - Bot: v0 UserBot_1734901968 [@v0_userbot_1734901971_bot]
+2025-03-22 17:49:01,342 - aiogram - WARNING - Updates were skipped successfully.
+2025-03-22 17:49:01,342 - __main__ - INFO - Запуск бота...
+2025-03-22 17:49:01,342 - telethon.network.mtprotosender - INFO - Connecting to 149.154.167.51:443/TcpFull...
+2025-03-22 17:49:01,387 - telethon.network.mtprotosender - INFO - Connection to 149.154.167.51:443/TcpFull complete!
+2025-03-22 17:50:38,436 - __main__ - INFO - ✅ Telethon клиент успешно запущен
+2025-03-22 17:50:38,436 - __main__ - INFO - ✅ Бот успешно запущен и готов к работе
+2025-03-22 17:50:38,436 - aiogram.dispatcher.dispatcher - INFO - Start polling.
+2025-03-22 17:51:31,103 - __main__ - INFO - Пользователь 7241965595 запустил бота
+2025-03-22 17:51:31,103 - __main__ - INFO - Начало первичной настройки для пользователя 7241965595
+2025-03-22 17:51:34,058 - asyncio - ERROR - Task exception was never retrieved
+future: <Task finished name='Task-333' coro=<Dispatcher._process_polling_updates() done, defined at /home/derxywat/NEWSbot/venv3.11/lib64/python3.11/site-packages/aiogram/dispatcher/dispatcher.py:410> exception=AttributeError("'str' object has no attribute '__name__'")>
+Traceback (most recent call last):
+  File "/home/derxywat/NEWSbot/venv3.11/lib64/python3.11/site-packages/aiogram/dispatcher/dispatcher.py", line 418, in _process_polling_updates
+    for responses in itertools.chain.from_iterable(await self.process_updates(updates, fast)):
+                                                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/derxywat/NEWSbot/venv3.11/lib64/python3.11/site-packages/aiogram/dispatcher/dispatcher.py", line 236, in process_updates
+    return await asyncio.gather(*tasks)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/derxywat/NEWSbot/venv3.11/lib64/python3.11/site-packages/aiogram/dispatcher/handler.py", line 117, in notify
+    response = await handler_obj.handler(*args, **partial_data)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/derxywat/NEWSbot/venv3.11/lib64/python3.11/site-packages/aiogram/dispatcher/dispatcher.py", line 257, in process_update
+    return await self.message_handlers.notify(update.message)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/derxywat/NEWSbot/venv3.11/lib64/python3.11/site-packages/aiogram/dispatcher/handler.py", line 117, in notify
+    response = await handler_obj.handler(*args, **partial_data)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/derxywat/NEWSbot/main.py", line 218, in cmd_start
+    f"{model} ({provider['provider'].__name__})",
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'str' object has no attribute '__name__'
+2025-03-22 17:53:57,003 - telethon.client.updates - INFO - Got difference for channel 1802259263 updates
+2025-03-22 17:53:59,791 - __main__ - INFO - Остановка бота...
+2025-03-22 17:53:59,791 - telethon.network.mtprotosender - INFO - Disconnecting from 149.154.167.51:443/TcpFull...
+2025-03-22 17:53:59,791 - telethon.network.mtprotosender - INFO - Disconnection from 149.154.167.51:443/TcpFull complete!
+2025-03-22 17:53:59,796 - __main__ - INFO - ✅ Telethon клиент остановлен
+2025-03-22 17:53:59,797 - __main__ - INFO - ✅ Бот успешно остановлен
+2025-03-22 17:53:59,797 - aiogram.dispatcher.dispatcher - INFO - Stop polling...
+2025-03-22 17:53:59,797 - aiogram - WARNING - Goodbye!
+2025-03-22 17:54:31,030 - aiogram - INFO - Bot: v0 UserBot_1734901968 [@v0_userbot_1734901971_bot]
+2025-03-22 17:54:31,146 - aiogram - WARNING - Updates were skipped successfully.
+2025-03-22 17:54:31,146 - __main__ - INFO - Запуск бота...
+2025-03-22 17:54:31,146 - telethon.network.mtprotosender - INFO - Connecting to 149.154.167.51:443/TcpFull...
+2025-03-22 17:54:31,231 - telethon.network.mtprotosender - INFO - Connection to 149.154.167.51:443/TcpFull complete!
+2025-03-22 17:54:31,692 - __main__ - INFO - ✅ Telethon клиент успешно запущен
+2025-03-22 17:54:31,692 - __main__ - INFO - ✅ Бот успешно запущен и готов к работе
+2025-03-22 17:54:31,693 - aiogram.dispatcher.dispatcher - INFO - Start polling.
+2025-03-22 17:55:06,063 - __main__ - INFO - Пользователь 7241965595 запустил бота
+2025-03-22 17:55:06,064 - __main__ - INFO - Начало первичной настройки для пользователя 7241965595
+2025-03-22 17:55:32,090 - telethon.client.updates - INFO - Got difference for channel 1617506819 updates
+2025-03-22 17:55:47,890 - telethon.client.updates - INFO - Got difference for channel 1617506819 updates
+2025-03-22 17:55:53,236 - telethon.client.updates - INFO - Got difference for channel 2464551247 updates
+2025-03-22 17:55:57,149 - telethon.client.updates - INFO - Got difference for channel 1617506819 updates
+2025-03-22 17:56:04,151 - telethon.client.updates - INFO - Got difference for channel 1617506819 updates
+2025-03-22 17:56:12,123 - telethon.client.updates - INFO - Got difference for channel 1617506819 updates
+2025-03-22 17:56:24,667 - telethon.client.updates - INFO - Got difference for channel 1617506819 updates
+2025-03-22 17:56:24,736 - telethon.client.updates - INFO - Got difference for channel 2464551247 updates
+2025-03-22 17:56:29,699 - telethon.client.updates - INFO - Got difference for channel 2464551247 updates
+2025-03-22 17:56:42,556 - telethon.client.updates - INFO - Got difference for channel 1617506819 updates
+2025-03-22 17:56:46,603 - telethon.client.updates - INFO - Got difference for channel 1617506819 updates
+2025-03-22 17:56:50,124 - telethon.client.updates - INFO - Got difference for channel 1617506819 updates
+2025-03-22 17:56:59,046 - telethon.client.updates - INFO - Got difference for channel 1617506819 updates
+2025-03-22 17:57:04,512 - telethon.client.updates - INFO - Got difference for channel 2464551247 updates
+2025-03-22 17:57:18,591 - telethon.client.updates - INFO - Got difference for channel 1617506819 updates
+2025-03-22 17:57:18,675 - telethon.client.updates - INFO - Got difference for channel 2366096301 updates
+2025-03-22 17:57:25,719 - telethon.client.updates - INFO - Got difference for channel 1617506819 updates
+2025-03-22 17:57:39,049 - telethon.client.updates - INFO - Got difference for channel 2464551247 updates
+2025-03-22 17:57:42,816 - telethon.client.updates - INFO - Got difference for channel 1617506819 updates
+2025-03-22 17:57:48,782 - telethon.client.updates - INFO - Got difference for channel 2464551247 updates
+2025-03-22 17:57:51,804 - telethon.client.updates - INFO - Got difference for channel 1617506819 updates
+2025-03-22 17:58:09,977 - telethon.client.updates - INFO - Got difference for channel 1617506819 updates
+2025-03-22 17:58:12,746 - __main__ - INFO - Остановка бота...
+2025-03-22 17:58:12,746 - telethon.network.mtprotosender - INFO - Disconnecting from 149.154.167.51:443/TcpFull...
+2025-03-22 17:58:12,747 - telethon.network.mtprotosender - INFO - Disconnection from 149.154.167.51:443/TcpFull complete!
+2025-03-22 17:58:12,752 - __main__ - INFO - ✅ Telethon клиент остановлен
+2025-03-22 17:58:12,752 - __main__ - INFO - ✅ Бот успешно остановлен
+2025-03-22 17:58:12,752 - aiogram.dispatcher.dispatcher - INFO - Stop polling...
+2025-03-22 17:58:12,752 - aiogram - WARNING - Goodbye!
+2025-03-22 17:58:15,255 - aiogram - INFO - Bot: v0 UserBot_1734901968 [@v0_userbot_1734901971_bot]
+2025-03-22 17:58:15,438 - aiogram - WARNING - Updates were skipped successfully.
+2025-03-22 17:58:15,438 - __main__ - INFO - Запуск бота...
+2025-03-22 17:58:15,438 - telethon.network.mtprotosender - INFO - Connecting to 149.154.167.51:443/TcpFull...
+2025-03-22 17:58:15,487 - telethon.network.mtprotosender - INFO - Connection to 149.154.167.51:443/TcpFull complete!
+2025-03-22 17:58:15,866 - __main__ - INFO - ✅ Telethon клиент успешно запущен
+2025-03-22 17:58:15,866 - __main__ - INFO - ✅ Бот успешно запущен и готов к работе
+2025-03-22 17:58:15,866 - aiogram.dispatcher.dispatcher - INFO - Start polling.
+2025-03-22 17:58:35,508 - __main__ - INFO - Пользователь 7241965595 запустил бота
+2025-03-22 17:59:27,072 - telethon.client.updates - INFO - Got difference for channel 2366096301 updates
+2025-03-22 18:01:24,323 - __main__ - INFO - Остановка бота...
+2025-03-22 18:01:24,323 - telethon.network.mtprotosender - INFO - Disconnecting from 149.154.167.51:443/TcpFull...
+2025-03-22 18:01:24,324 - telethon.network.mtprotosender - INFO - Disconnection from 149.154.167.51:443/TcpFull complete!
+2025-03-22 18:01:24,329 - __main__ - INFO - ✅ Telethon клиент остановлен
+2025-03-22 18:01:24,329 - __main__ - INFO - ✅ Бот успешно остановлен
+2025-03-22 18:01:24,329 - aiogram.dispatcher.dispatcher - INFO - Stop polling...
+2025-03-22 18:01:24,329 - aiogram - WARNING - Goodbye!
+2025-03-22 18:01:26,682 - aiogram - INFO - Bot: v0 UserBot_1734901968 [@v0_userbot_1734901971_bot]
+2025-03-22 18:01:26,785 - aiogram - WARNING - Updates were skipped successfully.
+2025-03-22 18:01:26,785 - __main__ - INFO - Запуск бота...
+2025-03-22 18:01:26,785 - telethon.network.mtprotosender - INFO - Connecting to 149.154.167.51:443/TcpFull...
+2025-03-22 18:01:26,837 - telethon.network.mtprotosender - INFO - Connection to 149.154.167.51:443/TcpFull complete!
+2025-03-22 18:01:27,259 - __main__ - INFO - ✅ Telethon клиент успешно запущен
+2025-03-22 18:01:27,259 - __main__ - INFO - ✅ Бот успешно запущен и готов к работе
+2025-03-22 18:01:27,260 - aiogram.dispatcher.dispatcher - INFO - Start polling.
+2025-03-22 18:01:29,871 - __main__ - INFO - Остановка бота...
+2025-03-22 18:01:29,871 - telethon.network.mtprotosender - INFO - Disconnecting from 149.154.167.51:443/TcpFull...
+2025-03-22 18:01:29,872 - telethon.network.mtprotosender - INFO - Disconnection from 149.154.167.51:443/TcpFull complete!
+2025-03-22 18:01:29,877 - __main__ - INFO - ✅ Telethon клиент остановлен
+2025-03-22 18:01:29,877 - __main__ - INFO - ✅ Бот успешно остановлен
+2025-03-22 18:01:29,877 - aiogram.dispatcher.dispatcher - INFO - Stop polling...
+2025-03-22 18:01:29,877 - aiogram - WARNING - Goodbye!
+2025-03-22 18:01:32,825 - aiogram - INFO - Bot: v0 UserBot_1734901968 [@v0_userbot_1734901971_bot]
+2025-03-22 18:01:32,955 - aiogram - WARNING - Updates were skipped successfully.
+2025-03-22 18:01:32,955 - __main__ - INFO - Запуск бота...
+2025-03-22 18:01:32,955 - telethon.network.mtprotosender - INFO - Connecting to 149.154.167.51:443/TcpFull...
+2025-03-22 18:01:33,014 - telethon.network.mtprotosender - INFO - Connection to 149.154.167.51:443/TcpFull complete!
+2025-03-22 18:01:33,613 - __main__ - INFO - ✅ Telethon клиент успешно запущен
+2025-03-22 18:01:33,613 - __main__ - INFO - ✅ Бот успешно запущен и готов к работе
+2025-03-22 18:01:33,613 - aiogram.dispatcher.dispatcher - INFO - Start polling.
+2025-03-22 18:01:48,855 - __main__ - INFO - Пользователь 7241965595 запустил бота
+2025-03-22 18:02:17,466 - __main__ - INFO - Остановка бота...
+2025-03-22 18:02:17,466 - telethon.network.mtprotosender - INFO - Disconnecting from 149.154.167.51:443/TcpFull...
+2025-03-22 18:02:17,466 - telethon.network.mtprotosender - INFO - Disconnection from 149.154.167.51:443/TcpFull complete!
+2025-03-22 18:02:17,490 - __main__ - INFO - ✅ Telethon клиент остановлен
+2025-03-22 18:02:17,491 - __main__ - INFO - ✅ Бот успешно остановлен
+2025-03-22 18:02:17,491 - aiogram.dispatcher.dispatcher - INFO - Stop polling...
+2025-03-22 18:02:17,491 - aiogram - WARNING - Goodbye!
+2025-03-22 18:03:24,353 - aiogram - INFO - Bot: v0 UserBot_1734901968 [@v0_userbot_1734901971_bot]
+2025-03-22 18:03:24,456 - aiogram - WARNING - Updates were skipped successfully.
+2025-03-22 18:03:24,456 - __main__ - INFO - Запуск бота...
+2025-03-22 18:03:24,456 - telethon.network.mtprotosender - INFO - Connecting to 149.154.167.51:443/TcpFull...
+2025-03-22 18:03:24,507 - telethon.network.mtprotosender - INFO - Connection to 149.154.167.51:443/TcpFull complete!
+2025-03-22 18:03:24,825 - __main__ - INFO - ✅ Telethon клиент успешно запущен
+2025-03-22 18:03:24,825 - __main__ - INFO - ✅ Бот успешно запущен и готов к работе
+2025-03-22 18:03:24,825 - aiogram.dispatcher.dispatcher - INFO - Start polling.
+2025-03-22 18:03:40,050 - __main__ - INFO - Пользователь 7241965595 запустил бота
+2025-03-22 18:03:44,052 - __main__ - INFO - Получен callback_data: political_analysis_situation_analysis
+2025-03-22 18:03:44,053 - __main__ - INFO - Разобранные данные: категория=political_analysis, действие=situation_analysis
+2025-03-22 18:03:44,053 - __main__ - INFO - Получен текст промпта длиной 224 символов
+2025-03-22 18:03:48,436 - __main__ - INFO - Получен ввод от пользователя 7241965595 для анализа
+2025-03-22 18:03:48,436 - __main__ - INFO - Категория: political_analysis, Действие: situation_analysis
+2025-03-22 18:03:48,436 - __main__ - INFO - Используется модель: openai/gpt-3.5-turbo
+2025-03-22 18:03:48,584 - __main__ - INFO - Отправка запроса к AI
+2025-03-22 18:03:48,699 - ai_service - INFO - Отправка запроса к OpenRouter API с моделью openai/gpt-3.5-turbo
+2025-03-22 18:03:52,525 - httpx - INFO - HTTP Request: POST https://openrouter.ai/api/v1/chat/completions "HTTP/1.1 200 OK"
+2025-03-22 18:03:52,552 - ai_service - ERROR - Ошибка при запросе к OpenRouter API: 'NoneType' object is not subscriptable
+2025-03-22 18:03:52,770 - __main__ - ERROR - Ошибка при обработке ввода: Exception: Ошибка при запросе к API: 'NoneType' object is not subscriptable
+Traceback (most recent call last):
+  File "/home/derxywat/NEWSbot/ai_service.py", line 184, in try_gpt_request
+    assistant_response = response.choices[0].message.content
+                         ~~~~~~~~~~~~~~~~^^^
+TypeError: 'NoneType' object is not subscriptable
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/derxywat/NEWSbot/ai_service.py", line 198, in try_gpt_request
+    raise Exception(f"Ошибка при запросе к API: {error_str}")
+Exception: Ошибка при запросе к API: 'NoneType' object is not subscriptable
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/derxywat/NEWSbot/main.py", line 892, in process_input
+    response = await try_gpt_request(
+               ^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/derxywat/NEWSbot/ai_service.py", line 204, in try_gpt_request
+    raise Exception(error_msg)
+Exception: Exception: Ошибка при запросе к API: 'NoneType' object is not subscriptable
+2025-03-22 18:03:52,849 - __main__ - INFO - Обработка завершена для пользователя 7241965595
+2025-03-22 18:04:00,687 - __main__ - INFO - Получен callback_data: image_formation_pr_campaign
+2025-03-22 18:04:00,688 - __main__ - INFO - Разобранные данные: категория=image_formation, действие=pr_campaign
+2025-03-22 18:04:00,688 - __main__ - INFO - Получен текст промпта длиной 154 символов
+2025-03-22 18:04:03,027 - __main__ - INFO - Получен ввод от пользователя 7241965595 для анализа
+2025-03-22 18:04:03,027 - __main__ - INFO - Категория: image_formation, Действие: pr_campaign
+2025-03-22 18:04:03,027 - __main__ - INFO - Используется модель: openai/gpt-3.5-turbo
+2025-03-22 18:04:03,155 - __main__ - INFO - Отправка запроса к AI
+2025-03-22 18:04:03,250 - ai_service - INFO - Отправка запроса к OpenRouter API с моделью openai/gpt-3.5-turbo
+2025-03-22 18:04:03,684 - httpx - INFO - HTTP Request: POST https://openrouter.ai/api/v1/chat/completions "HTTP/1.1 200 OK"
+2025-03-22 18:04:03,703 - ai_service - ERROR - Ошибка при запросе к OpenRouter API: 'NoneType' object is not subscriptable
+2025-03-22 18:04:07,239 - __main__ - ERROR - Ошибка при обработке ввода: Exception: Ошибка при запросе к API: 'NoneType' object is not subscriptable
+Traceback (most recent call last):
+  File "/home/derxywat/NEWSbot/ai_service.py", line 184, in try_gpt_request
+    assistant_response = response.choices[0].message.content
+                         ~~~~~~~~~~~~~~~~^^^
+TypeError: 'NoneType' object is not subscriptable
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/derxywat/NEWSbot/ai_service.py", line 198, in try_gpt_request
+    raise Exception(f"Ошибка при запросе к API: {error_str}")
+Exception: Ошибка при запросе к API: 'NoneType' object is not subscriptable
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/derxywat/NEWSbot/main.py", line 892, in process_input
+    response = await try_gpt_request(
+               ^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/derxywat/NEWSbot/ai_service.py", line 204, in try_gpt_request
+    raise Exception(error_msg)
+Exception: Exception: Ошибка при запросе к API: 'NoneType' object is not subscriptable
+2025-03-22 18:04:07,323 - __main__ - INFO - Обработка завершена для пользователя 7241965595
+2025-03-22 18:04:11,381 - __main__ - INFO - Получен callback_data: media_relations_press_release
+2025-03-22 18:04:11,381 - __main__ - INFO - Разобранные данные: категория=media_relations, действие=press_release
+2025-03-22 18:04:11,381 - __main__ - INFO - Получен текст промпта длиной 155 символов
+2025-03-22 18:04:17,073 - telethon.client.updates - INFO - Got difference for channel 2295379510 updates
+2025-03-22 18:07:19,715 - aiogram - INFO - Bot: v0 UserBot_1734901968 [@v0_userbot_1734901971_bot]
+2025-03-22 18:07:19,814 - aiogram - WARNING - Updates were skipped successfully.
+2025-03-22 18:07:19,814 - __main__ - INFO - Запуск бота...
+2025-03-22 18:07:19,814 - telethon.network.mtprotosender - INFO - Connecting to 149.154.167.51:443/TcpFull...
+2025-03-22 18:07:19,859 - telethon.network.mtprotosender - INFO - Connection to 149.154.167.51:443/TcpFull complete!
+2025-03-22 18:07:20,268 - __main__ - INFO - ✅ Telethon клиент успешно запущен
+2025-03-22 18:07:20,268 - __main__ - INFO - ✅ Бот успешно запущен и готов к работе
+2025-03-22 18:07:20,268 - aiogram.dispatcher.dispatcher - INFO - Start polling.
+2025-03-22 18:07:26,140 - __main__ - INFO - Получен callback_data: political_analysis_situation_analysis
+2025-03-22 18:07:26,140 - __main__ - INFO - Разобранные данные: категория=political_analysis, действие=situation_analysis
+2025-03-22 18:07:26,140 - __main__ - INFO - Получен текст промпта длиной 224 символов
+2025-03-22 18:07:30,286 - __main__ - INFO - Получен ввод от пользователя 7241965595 для анализа
+2025-03-22 18:07:30,286 - __main__ - INFO - Категория: political_analysis, Действие: situation_analysis
+2025-03-22 18:07:30,286 - __main__ - INFO - Используется модель: openai/gpt-3.5-turbo
+2025-03-22 18:07:30,454 - __main__ - INFO - Сбор данных из каналов
+2025-03-22 18:07:30,454 - __main__ - INFO - Обработано каналов: 0
+2025-03-22 18:07:30,454 - __main__ - INFO - Отправка запроса к AI
+2025-03-22 18:07:30,629 - ai_service - INFO - Отправка запроса к OpenRouter API с моделью openai/gpt-3.5-turbo
+2025-03-22 18:07:31,161 - httpx - INFO - HTTP Request: POST https://openrouter.ai/api/v1/chat/completions "HTTP/1.1 200 OK"
+2025-03-22 18:07:31,194 - ai_service - INFO - Структура ответа API: ChatCompletion(id=None, choices=None, created=None, model=None, object=None, service_tier=None, system_fingerprint=None, usage=None, error={'message': 'Provider returned error', 'code': 403, 'metadata': {'raw': '{"error":{"code":"unsupported_country_region_territory","message":"Country, region, or territory not supported","param":null,"type":"request_forbidden"}}', 'provider_name': 'OpenAI'}}, user_id='user_2u2d7yFuTNowDvD9d6pmuZl6AR3')
+2025-03-22 18:07:31,195 - ai_service - ERROR - Неверная структура ответа API: отсутствует choices или пустой
+2025-03-22 18:07:31,195 - ai_service - ERROR - Ошибка при запросе к OpenRouter API: Неверная структура ответа API
+2025-03-22 18:07:34,725 - __main__ - ERROR - Ошибка при обработке ввода: Exception: Ошибка при запросе к API: Неверная структура ответа API
+Traceback (most recent call last):
+  File "/home/derxywat/NEWSbot/ai_service.py", line 193, in try_gpt_request
+    raise Exception("Неверная структура ответа API")
+Exception: Неверная структура ответа API
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/derxywat/NEWSbot/ai_service.py", line 219, in try_gpt_request
+    raise Exception(f"Ошибка при запросе к API: {error_str}")
+Exception: Ошибка при запросе к API: Неверная структура ответа API
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/derxywat/NEWSbot/main.py", line 892, in process_input
+    response = await try_gpt_request(
+               ^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/derxywat/NEWSbot/ai_service.py", line 225, in try_gpt_request
+    raise Exception(error_msg)
+Exception: Exception: Ошибка при запросе к API: Неверная структура ответа API
+2025-03-22 18:07:34,936 - __main__ - INFO - Обработка завершена для пользователя 7241965595
+2025-03-22 18:07:39,412 - __main__ - INFO - Остановка бота...
+2025-03-22 18:07:39,412 - telethon.network.mtprotosender - INFO - Disconnecting from 149.154.167.51:443/TcpFull...
+2025-03-22 18:07:39,412 - telethon.network.mtprotosender - INFO - Disconnection from 149.154.167.51:443/TcpFull complete!
+2025-03-22 18:07:39,416 - __main__ - INFO - ✅ Telethon клиент остановлен
+2025-03-22 18:07:39,416 - __main__ - INFO - ✅ Бот успешно остановлен
+2025-03-22 18:07:39,416 - aiogram.dispatcher.dispatcher - INFO - Stop polling...
+2025-03-22 18:07:39,417 - aiogram - WARNING - Goodbye!
+2025-03-22 18:13:54,015 - aiogram - INFO - Bot: v0 UserBot_1734901968 [@v0_userbot_1734901971_bot]
+2025-03-22 18:13:54,224 - aiogram - WARNING - Updates were skipped successfully.
+2025-03-22 18:13:54,224 - __main__ - INFO - Запуск бота...
+2025-03-22 18:13:54,224 - telethon.network.mtprotosender - INFO - Connecting to 149.154.167.51:443/TcpFull...
+2025-03-22 18:13:54,329 - telethon.network.mtprotosender - INFO - Connection to 149.154.167.51:443/TcpFull complete!
+2025-03-22 18:13:55,633 - __main__ - INFO - ✅ Telethon клиент успешно запущен
+2025-03-22 18:13:55,633 - __main__ - INFO - ✅ Бот успешно запущен и готов к работе
+2025-03-22 18:13:55,634 - aiogram.dispatcher.dispatcher - INFO - Start polling.
+2025-03-22 18:14:00,261 - __main__ - INFO - Получен callback_data: political_analysis_situation_analysis
+2025-03-22 18:14:00,261 - __main__ - INFO - Разобранные данные: категория=political_analysis, действие=situation_analysis
+2025-03-22 18:14:00,261 - __main__ - INFO - Получен текст промпта длиной 224 символов
+2025-03-22 18:14:04,294 - __main__ - INFO - Получен ввод от пользователя 7241965595 для анализа
+2025-03-22 18:14:04,294 - __main__ - INFO - Категория: political_analysis, Действие: situation_analysis
+2025-03-22 18:14:04,294 - __main__ - INFO - Используется модель: openai/gpt-3.5-turbo
+2025-03-22 18:14:04,368 - __main__ - INFO - Сбор данных из каналов
+2025-03-22 18:14:04,368 - __main__ - INFO - Обработано каналов: 0
+2025-03-22 18:14:04,368 - __main__ - INFO - Отправка запроса к AI
+2025-03-22 18:14:04,453 - ai_service - INFO - Отправка запроса к OpenRouter API с моделью openai/gpt-3.5-turbo
+2025-03-22 18:14:05,073 - ai_service - INFO - Структура ответа API: {'error': {'message': 'Provider returned error', 'code': 403, 'metadata': {'raw': '{"error":{"code":"unsupported_country_region_territory","message":"Country, region, or territory not supported","param":null,"type":"request_forbidden"}}', 'provider_name': 'OpenAI'}}, 'user_id': 'user_2u2d7yFuTNowDvD9d6pmuZl6AR3'}
+2025-03-22 18:14:05,073 - ai_service - ERROR - Ошибка OpenRouter API: Provider returned error (OpenAI)
+2025-03-22 18:14:08,432 - __main__ - ERROR - Ошибка при обработке ввода: Exception: Ошибка OpenRouter API: Provider returned error (OpenAI)
+Traceback (most recent call last):
+  File "/home/derxywat/NEWSbot/ai_service.py", line 218, in try_gpt_request
+    raise Exception(error_msg)
+Exception: Ошибка OpenRouter API: Provider returned error (OpenAI)
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/derxywat/NEWSbot/main.py", line 892, in process_input
+    response = await try_gpt_request(
+               ^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/derxywat/NEWSbot/ai_service.py", line 251, in try_gpt_request
+    raise Exception(error_msg)
+Exception: Exception: Ошибка OpenRouter API: Provider returned error (OpenAI)
+2025-03-22 18:14:08,521 - __main__ - INFO - Обработка завершена для пользователя 7241965595
+2025-03-22 18:14:11,278 - __main__ - INFO - Остановка бота...
+2025-03-22 18:14:11,279 - telethon.network.mtprotosender - INFO - Disconnecting from 149.154.167.51:443/TcpFull...
+2025-03-22 18:14:11,279 - telethon.network.mtprotosender - INFO - Disconnection from 149.154.167.51:443/TcpFull complete!
+2025-03-22 18:14:11,283 - __main__ - INFO - ✅ Telethon клиент остановлен
+2025-03-22 18:14:11,283 - __main__ - INFO - ✅ Бот успешно остановлен
+2025-03-22 18:14:11,283 - aiogram.dispatcher.dispatcher - INFO - Stop polling...
+2025-03-22 18:14:11,283 - aiogram - WARNING - Goodbye!
+2025-03-22 18:14:54,360 - aiogram - INFO - Bot: v0 UserBot_1734901968 [@v0_userbot_1734901971_bot]
+2025-03-22 18:14:54,468 - aiogram - WARNING - Updates were skipped successfully.
+2025-03-22 18:14:54,468 - __main__ - INFO - Запуск бота...
+2025-03-22 18:14:54,469 - telethon.network.mtprotosender - INFO - Connecting to 149.154.167.51:443/TcpFull...
+2025-03-22 18:14:54,522 - telethon.network.mtprotosender - INFO - Connection to 149.154.167.51:443/TcpFull complete!
+2025-03-22 18:14:54,996 - __main__ - INFO - ✅ Telethon клиент успешно запущен
+2025-03-22 18:14:54,996 - __main__ - INFO - ✅ Бот успешно запущен и готов к работе
+2025-03-22 18:14:54,996 - aiogram.dispatcher.dispatcher - INFO - Start polling.
+2025-03-22 18:15:01,115 - __main__ - INFO - Получен callback_data: political_analysis_situation_analysis
+2025-03-22 18:15:01,116 - __main__ - INFO - Разобранные данные: категория=political_analysis, действие=situation_analysis
+2025-03-22 18:15:01,116 - __main__ - INFO - Получен текст промпта длиной 224 символов
+2025-03-22 18:15:03,909 - __main__ - INFO - Получен ввод от пользователя 7241965595 для анализа
+2025-03-22 18:15:03,909 - __main__ - INFO - Категория: political_analysis, Действие: situation_analysis
+2025-03-22 18:15:03,909 - __main__ - INFO - Используется модель: openai/gpt-3.5-turbo
+2025-03-22 18:15:03,975 - __main__ - INFO - Сбор данных из каналов
+2025-03-22 18:15:03,975 - __main__ - INFO - Обработано каналов: 0
+2025-03-22 18:15:03,975 - __main__ - INFO - Отправка запроса к AI
+2025-03-22 18:15:04,095 - ai_service - INFO - Отправка запроса к OpenRouter API с моделью openai/gpt-3.5-turbo
+2025-03-22 18:15:04,526 - ai_service - INFO - Структура ответа API: {'error': {'message': 'Provider returned error', 'code': 403, 'metadata': {'raw': '{"error":{"code":"unsupported_country_region_territory","message":"Country, region, or territory not supported","param":null,"type":"request_forbidden"}}', 'provider_name': 'OpenAI'}}, 'user_id': 'user_2u2d7yFuTNowDvD9d6pmuZl6AR3'}
+2025-03-22 18:15:04,526 - ai_service - ERROR - Ошибка OpenRouter API: Provider returned error (OpenAI)
+2025-03-22 18:15:08,082 - __main__ - ERROR - Ошибка при обработке ввода: Exception: Ошибка OpenRouter API: Provider returned error (OpenAI)
+Traceback (most recent call last):
+  File "/home/derxywat/NEWSbot/ai_service.py", line 218, in try_gpt_request
+    raise Exception(error_msg)
+Exception: Ошибка OpenRouter API: Provider returned error (OpenAI)
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/derxywat/NEWSbot/main.py", line 892, in process_input
+    response = await try_gpt_request(
+               ^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/derxywat/NEWSbot/ai_service.py", line 251, in try_gpt_request
+    raise Exception(error_msg)
+Exception: Exception: Ошибка OpenRouter API: Provider returned error (OpenAI)
+2025-03-22 18:15:08,192 - __main__ - INFO - Обработка завершена для пользователя 7241965595
+2025-03-22 18:15:12,315 - __main__ - INFO - Остановка бота...
+2025-03-22 18:15:12,315 - telethon.network.mtprotosender - INFO - Disconnecting from 149.154.167.51:443/TcpFull...
+2025-03-22 18:15:12,316 - telethon.network.mtprotosender - INFO - Disconnection from 149.154.167.51:443/TcpFull complete!
+2025-03-22 18:15:12,320 - __main__ - INFO - ✅ Telethon клиент остановлен
+2025-03-22 18:15:12,320 - __main__ - INFO - ✅ Бот успешно остановлен
+2025-03-22 18:15:12,320 - aiogram.dispatcher.dispatcher - INFO - Stop polling...
+2025-03-22 18:15:12,320 - aiogram - WARNING - Goodbye!
+2025-03-22 18:15:19,474 - aiogram - INFO - Bot: v0 UserBot_1734901968 [@v0_userbot_1734901971_bot]
+2025-03-22 18:15:19,578 - aiogram - WARNING - Updates were skipped successfully.
+2025-03-22 18:15:19,578 - __main__ - INFO - Запуск бота...
+2025-03-22 18:15:19,578 - telethon.network.mtprotosender - INFO - Connecting to 149.154.167.51:443/TcpFull...
+2025-03-22 18:15:19,623 - telethon.network.mtprotosender - INFO - Connection to 149.154.167.51:443/TcpFull complete!
+2025-03-22 18:15:20,282 - __main__ - INFO - ✅ Telethon клиент успешно запущен
+2025-03-22 18:15:20,282 - __main__ - INFO - ✅ Бот успешно запущен и готов к работе
+2025-03-22 18:15:20,283 - aiogram.dispatcher.dispatcher - INFO - Start polling.
+2025-03-22 18:15:30,315 - __main__ - INFO - Получен callback_data: political_analysis_situation_analysis
+2025-03-22 18:15:30,316 - __main__ - INFO - Разобранные данные: категория=political_analysis, действие=situation_analysis
+2025-03-22 18:15:30,316 - __main__ - INFO - Получен текст промпта длиной 224 символов
+2025-03-22 18:15:33,148 - __main__ - INFO - Получен ввод от пользователя 7241965595 для анализа
+2025-03-22 18:15:33,148 - __main__ - INFO - Категория: political_analysis, Действие: situation_analysis
+2025-03-22 18:15:33,148 - __main__ - INFO - Используется модель: anthropic/claude-3-5-sonnet
+2025-03-22 18:15:33,285 - __main__ - INFO - Сбор данных из каналов
+2025-03-22 18:15:33,286 - __main__ - INFO - Обработано каналов: 0
+2025-03-22 18:15:33,286 - __main__ - INFO - Отправка запроса к AI
+2025-03-22 18:15:33,453 - ai_service - INFO - Отправка запроса к OpenRouter API с моделью anthropic/claude-3-5-sonnet
+2025-03-22 18:15:33,976 - ai_service - INFO - Структура ответа API: {'error': {'message': 'anthropic/claude-3-5-sonnet is not a valid model ID', 'code': 400}, 'user_id': 'user_2u2d7yFuTNowDvD9d6pmuZl6AR3'}
+2025-03-22 18:15:33,977 - ai_service - ERROR - Ошибка OpenRouter API: anthropic/claude-3-5-sonnet is not a valid model ID
+2025-03-22 18:15:37,558 - __main__ - ERROR - Ошибка при обработке ввода: Exception: Ошибка OpenRouter API: anthropic/claude-3-5-sonnet is not a valid model ID
+Traceback (most recent call last):
+  File "/home/derxywat/NEWSbot/ai_service.py", line 218, in try_gpt_request
+    raise Exception(error_msg)
+Exception: Ошибка OpenRouter API: anthropic/claude-3-5-sonnet is not a valid model ID
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/derxywat/NEWSbot/main.py", line 892, in process_input
+    response = await try_gpt_request(
+               ^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/derxywat/NEWSbot/ai_service.py", line 251, in try_gpt_request
+    raise Exception(error_msg)
+Exception: Exception: Ошибка OpenRouter API: anthropic/claude-3-5-sonnet is not a valid model ID
+2025-03-22 18:15:37,770 - __main__ - INFO - Обработка завершена для пользователя 7241965595
+2025-03-22 18:17:45,339 - __main__ - INFO - Остановка бота...
+2025-03-22 18:17:45,339 - telethon.network.mtprotosender - INFO - Disconnecting from 149.154.167.51:443/TcpFull...
+2025-03-22 18:17:45,340 - telethon.network.mtprotosender - INFO - Disconnection from 149.154.167.51:443/TcpFull complete!
+2025-03-22 18:17:45,344 - __main__ - INFO - ✅ Telethon клиент остановлен
+2025-03-22 18:17:45,344 - __main__ - INFO - ✅ Бот успешно остановлен
+2025-03-22 18:17:45,344 - aiogram.dispatcher.dispatcher - INFO - Stop polling...
+2025-03-22 18:17:45,344 - aiogram - WARNING - Goodbye!
+2025-03-22 18:20:22,819 - aiogram - INFO - Bot: v0 UserBot_1734901968 [@v0_userbot_1734901971_bot]
+2025-03-22 18:20:22,914 - aiogram - WARNING - Updates were skipped successfully.
+2025-03-22 18:20:22,915 - __main__ - INFO - Запуск бота...
+2025-03-22 18:20:22,915 - telethon.network.mtprotosender - INFO - Connecting to 149.154.167.51:443/TcpFull...
+2025-03-22 18:20:22,969 - telethon.network.mtprotosender - INFO - Connection to 149.154.167.51:443/TcpFull complete!
+2025-03-22 18:20:23,659 - ai_service - INFO - Получено 278 моделей от OpenRouter API
+2025-03-22 18:20:23,659 - __main__ - INFO - Отфильтровано 23 моделей Claude из 278 доступных моделей
+2025-03-22 18:20:23,659 - __main__ - INFO - Загружено 23 моделей Claude
+2025-03-22 18:20:23,660 - __main__ - INFO - ✅ Бот успешно запущен и готов к работе
+2025-03-22 18:20:23,660 - aiogram.dispatcher.dispatcher - INFO - Start polling.
+2025-03-22 18:20:36,737 - ai_service - INFO - Получено 278 моделей от OpenRouter API
+2025-03-22 18:20:36,737 - __main__ - INFO - Отфильтровано 23 моделей Claude из 278 доступных моделей
+2025-03-22 18:20:46,909 - __main__ - INFO - Получен callback_data: political_analysis_situation_analysis
+2025-03-22 18:20:46,909 - __main__ - INFO - Разобранные данные: категория=political_analysis, действие=situation_analysis
+2025-03-22 18:20:46,910 - __main__ - INFO - Получен текст промпта длиной 224 символов
+2025-03-22 18:20:50,794 - __main__ - INFO - Получен ввод от пользователя 7241965595 для анализа
+2025-03-22 18:20:50,795 - __main__ - INFO - Категория: political_analysis, Действие: situation_analysis
+2025-03-22 18:20:50,795 - __main__ - INFO - Используется модель: anthropic/claude-3-5-sonnet
+2025-03-22 18:20:50,901 - __main__ - INFO - Сбор данных из каналов
+2025-03-22 18:20:50,901 - __main__ - INFO - Обработано каналов: 0
+2025-03-22 18:20:50,901 - __main__ - INFO - Отправка запроса к AI
+2025-03-22 18:20:50,996 - ai_service - INFO - Отправка запроса к OpenRouter API с моделью anthropic/claude-3-5-sonnet
+2025-03-22 18:20:51,488 - ai_service - INFO - Структура ответа API: {'error': {'message': 'anthropic/claude-3-5-sonnet is not a valid model ID', 'code': 400}, 'user_id': 'user_2u2d7yFuTNowDvD9d6pmuZl6AR3'}
+2025-03-22 18:20:51,488 - ai_service - ERROR - Ошибка OpenRouter API: anthropic/claude-3-5-sonnet is not a valid model ID
+2025-03-22 18:20:55,143 - __main__ - ERROR - Ошибка при обработке ввода: Exception: Ошибка OpenRouter API: anthropic/claude-3-5-sonnet is not a valid model ID
+Traceback (most recent call last):
+  File "/home/derxywat/NEWSbot/ai_service.py", line 236, in try_gpt_request
+    raise Exception(error_msg)
+Exception: Ошибка OpenRouter API: anthropic/claude-3-5-sonnet is not a valid model ID
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/derxywat/NEWSbot/main.py", line 924, in process_input
+    response = await try_gpt_request(
+               ^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/derxywat/NEWSbot/ai_service.py", line 269, in try_gpt_request
+    raise Exception(error_msg)
+Exception: Exception: Ошибка OpenRouter API: anthropic/claude-3-5-sonnet is not a valid model ID
+2025-03-22 18:20:55,296 - __main__ - INFO - Обработка завершена для пользователя 7241965595
+2025-03-22 18:21:23,719 - aiogram.dispatcher.dispatcher - INFO - Stop polling...
+2025-03-22 18:21:23,719 - aiogram - WARNING - Goodbye!
+2025-03-22 18:24:08,930 - aiogram - INFO - Bot: v0 UserBot_1734901968 [@v0_userbot_1734901971_bot]
+2025-03-22 18:24:09,042 - aiogram - WARNING - Updates were skipped successfully.
+2025-03-22 18:24:09,042 - __main__ - INFO - Запуск бота...
+2025-03-22 18:24:09,042 - telethon.network.mtprotosender - INFO - Connecting to 149.154.167.51:443/TcpFull...
+2025-03-22 18:24:09,087 - telethon.network.mtprotosender - INFO - Connection to 149.154.167.51:443/TcpFull complete!
+2025-03-22 18:24:09,416 - __main__ - INFO - ✅ Telethon клиент успешно запущен
+2025-03-22 18:24:09,714 - ai_service - INFO - Получено 278 моделей от OpenRouter API
+2025-03-22 18:24:09,715 - ai_service - INFO - Установлена модель по умолчанию: anthropic/claude-3.5-haiku-20241022:beta
+2025-03-22 18:24:09,715 - ai_service - INFO - Обновлены провайдеры моделей: 1 провайдеров
+2025-03-22 18:24:09,715 - __main__ - INFO - Модели успешно обновлены, установлена модель по умолчанию: anthropic/claude-3-haiku
+2025-03-22 18:24:09,715 - __main__ - INFO - ✅ Бот успешно запущен и готов к работе
+2025-03-22 18:24:09,716 - aiogram.dispatcher.dispatcher - INFO - Start polling.
+2025-03-22 18:24:18,317 - ai_service - INFO - Получено 278 моделей от OpenRouter API
+2025-03-22 18:24:18,318 - ai_service - INFO - Установлена модель по умолчанию: anthropic/claude-3.5-haiku-20241022:beta
+2025-03-22 18:24:18,318 - ai_service - INFO - Обновлены провайдеры моделей: 1 провайдеров
+2025-03-22 18:24:46,665 - __main__ - INFO - Получен callback_data: political_analysis_situation_analysis
+2025-03-22 18:24:46,665 - __main__ - INFO - Разобранные данные: категория=political_analysis, действие=situation_analysis
+2025-03-22 18:24:46,665 - __main__ - INFO - Получен текст промпта длиной 224 символов
+2025-03-22 18:24:50,795 - __main__ - INFO - Получен ввод от пользователя 7241965595 для анализа
+2025-03-22 18:24:50,795 - __main__ - INFO - Категория: political_analysis, Действие: situation_analysis
+2025-03-22 18:24:50,795 - __main__ - INFO - Используется модель: anthropic/claude-3-haiku
+2025-03-22 18:24:50,983 - __main__ - INFO - Сбор данных из каналов
+2025-03-22 18:24:50,983 - __main__ - INFO - Обработано каналов: 0
+2025-03-22 18:24:50,983 - __main__ - INFO - Отправка запроса к AI
+2025-03-22 18:24:51,064 - ai_service - INFO - Отправка запроса к OpenRouter API с моделью anthropic/claude-3-haiku
+2025-03-22 18:24:52,808 - ai_service - INFO - Структура ответа API: {'id': 'gen-1742657091-Qvu1YOpwrfO4RQAjWHZw', 'provider': 'Anthropic', 'model': 'anthropic/claude-3-haiku', 'object': 'chat.completion', 'created': 1742657091, 'choices': [{'logprobs': None, 'finish_reason': 'stop', 'native_finish_reason': 'stop', 'index': 0, 'message': {'role': 'assistant', 'content': 'К сожалению, вы не предоставили достаточно данных для содержательного анализа текущей политической ситуации. Без конкретной информации о политических событиях, общественных настроениях и ключевых проблемах я не могу дать полноценные рекомендации. Пожалуйста, предоставьте более подробные данные, чтобы я мог провести качественный анализ и дать обоснованные предложения по действиям.', 'refusal': None}}], 'usage': {'prompt_tokens': 170, 'completion_tokens': 139, 'total_tokens': 309}}
+2025-03-22 18:24:52,900 - __main__ - INFO - Получен ответ от AI
+2025-03-22 18:24:55,317 - __main__ - INFO - Ответ успешно отправлен пользователю 7241965595
+2025-03-22 18:24:55,317 - __main__ - INFO - Обработка завершена для пользователя 7241965595
+2025-03-22 18:29:27,475 - aiogram - INFO - Bot: v0 UserBot_1734901968 [@v0_userbot_1734901971_bot]
+2025-03-22 18:29:27,582 - aiogram - WARNING - Updates were skipped successfully.
+2025-03-22 18:29:27,583 - __main__ - INFO - Запуск бота...
+2025-03-22 18:29:27,583 - telethon.network.mtprotosender - INFO - Connecting to 149.154.167.51:443/TcpFull...
+2025-03-22 18:29:27,629 - telethon.network.mtprotosender - INFO - Connection to 149.154.167.51:443/TcpFull complete!
+2025-03-22 18:29:27,942 - __main__ - INFO - ✅ Telethon клиент успешно запущен
+2025-03-22 18:29:29,448 - ai_service - INFO - Получено 278 моделей от OpenRouter API
+2025-03-22 18:29:29,449 - ai_service - INFO - Установлена модель по умолчанию: anthropic/claude-3.5-haiku-20241022:beta
+2025-03-22 18:29:29,449 - ai_service - INFO - Обновлены провайдеры моделей: 1 провайдеров
+2025-03-22 18:29:29,449 - __main__ - INFO - Модели успешно обновлены, установлена модель по умолчанию: anthropic/claude-3-haiku
+2025-03-22 18:29:29,449 - __main__ - INFO - ✅ Бот успешно запущен и готов к работе
+2025-03-22 18:29:29,450 - aiogram.dispatcher.dispatcher - INFO - Start polling.
+2025-03-22 18:29:31,644 - __main__ - INFO - Получен callback_data: political_analysis_situation_analysis
+2025-03-22 18:29:31,644 - __main__ - INFO - Разобранные данные: категория=political_analysis, действие=situation_analysis
+2025-03-22 18:29:31,644 - __main__ - INFO - Получен текст промпта длиной 224 символов
+2025-03-22 18:29:34,488 - __main__ - INFO - Получен ввод от пользователя 7241965595 для анализа
+2025-03-22 18:29:34,489 - __main__ - INFO - Категория: political_analysis, Действие: situation_analysis
+2025-03-22 18:29:34,489 - __main__ - INFO - Используется модель: anthropic/claude-3-haiku
+2025-03-22 18:29:34,634 - __main__ - INFO - Сбор данных из каналов
+2025-03-22 18:29:34,634 - __main__ - INFO - Обработано каналов: 0
+2025-03-22 18:29:34,634 - __main__ - INFO - Отправка запроса к AI
+2025-03-22 18:29:34,844 - ai_service - INFO - Отправка запроса к OpenRouter API с моделью anthropic/claude-3-haiku
+2025-03-22 18:29:37,629 - __main__ - INFO - Получен ввод от пользователя 7241965595 для анализа
+2025-03-22 18:29:37,629 - __main__ - INFO - Категория: political_analysis, Действие: situation_analysis
+2025-03-22 18:29:37,629 - __main__ - INFO - Используется модель: anthropic/claude-3-haiku
+2025-03-22 18:29:37,715 - __main__ - INFO - Сбор данных из каналов
+2025-03-22 18:29:37,715 - __main__ - INFO - Обработано каналов: 0
+2025-03-22 18:29:37,715 - __main__ - INFO - Отправка запроса к AI
+2025-03-22 18:29:37,792 - ai_service - INFO - Отправка запроса к OpenRouter API с моделью anthropic/claude-3-haiku
+2025-03-22 18:29:38,059 - ai_service - INFO - Структура ответа API: {'id': 'gen-1742657375-n6aDBgwYUhiSDBPYQhju', 'provider': 'Anthropic', 'model': 'anthropic/claude-3-haiku', 'object': 'chat.completion', 'created': 1742657375, 'choices': [{'logprobs': None, 'finish_reason': 'stop', 'native_finish_reason': 'stop', 'index': 0, 'message': {'role': 'assistant', 'content': 'Хорошо, проанализирую политическую ситуацию на основе предоставленных данных, учитывая ваши запросы.\n\n1. Основные политические тренды:\n- Рост популистских и националистических настроений\n- Поляризация политического ландшафта\n- Усиление роли альтернативных медиа и социальных сетей\n\n2. Ключевые проблемы и вызовы:\n- Экономическая нестабильность и растущее социальное неравенство\n- Миграционные вопросы и проблемы интеграции\n- Озабоченность вопросами безопасности и терроризма\n\n3. Общественные настроения:\n- Недоверие к традиционным политическим институтам\n- Запрос на перемены и "новые лица" в политике\n- Поляризация общественного мнения по ключевым вопросам\n\n4. Рекомендации по действиям:\n- Проведение реформ, направленных на повышение эффективности и прозрачности государственного управления\n- Активное вовлечение граждан в политические процессы\n- Укрепление диалога между различными политическими силами и социальными группами', 'refusal': None}}], 'usage': {'prompt_tokens': 176, 'completion_tokens': 352, 'total_tokens': 528}}
+2025-03-22 18:29:38,121 - __main__ - INFO - Получен ответ от AI
+2025-03-22 18:29:39,186 - __main__ - INFO - Ответ успешно отправлен пользователю 7241965595
+2025-03-22 18:29:39,186 - __main__ - INFO - Обработка завершена для пользователя 7241965595
+2025-03-22 18:29:41,979 - ai_service - INFO - Структура ответа API: {'id': 'gen-1742657378-PIxcrXL56TRK2ALVOTpr', 'provider': 'Anthropic', 'model': 'anthropic/claude-3-haiku', 'object': 'chat.completion', 'created': 1742657378, 'choices': [{'logprobs': None, 'finish_reason': 'stop', 'native_finish_reason': 'stop', 'index': 0, 'message': {'role': 'assistant', 'content': 'Хорошо, проанализирую текущую политическую ситуацию на основе предоставленной информации.\n\n1. Основные политические тренды:\n- Рост поляризации среди политических сил\n- Усиление популистских и националистических настроений\n- Фокус на внутренних проблемах и снижение внимания к внешней политике\n\n2. Ключевые проблемы и вызовы:\n- Экономический спад и высокая инфляция\n- Недовольство граждан действующей властью\n- Обострение социальных и этнических конфликтов\n\n3. Общественные настроения:\n- Разочарование и недоверие к политическому истеблишменту\n- Запрос на перемены и радикальные решения\n- Рост протестных настроений и желание активного участия\n\n4. Рекомендации по действиям:\n- Разработать комплексную программу экономических реформ\n- Наладить конструктивный диалог с оппозицией и гражданским обществом\n- Повысить прозрачность и подотчетность власти\n- Уделить больше внимания социальной сфере и решению насущных проблем граждан\n\nРезюмируя, текущая политическая ситуация характеризуется высокой степенью нестабильности и поляризации. Для ее стабилизации необходимы серьезные реформы, открытость власти и учет интересов всех заинтересованных сторон.', 'refusal': None}}], 'usage': {'prompt_tokens': 176, 'completion_tokens': 436, 'total_tokens': 612}}
+2025-03-22 18:29:42,060 - __main__ - INFO - Получен ответ от AI
+2025-03-22 18:29:46,157 - __main__ - INFO - Ответ успешно отправлен пользователю 7241965595
+2025-03-22 18:29:46,157 - __main__ - INFO - Обработка завершена для пользователя 7241965595
+2025-03-22 18:30:11,430 - ai_service - INFO - Получено 278 моделей от OpenRouter API
+2025-03-22 18:30:11,430 - ai_service - INFO - Установлена модель по умолчанию: anthropic/claude-3.5-haiku-20241022:beta
+2025-03-22 18:30:11,431 - ai_service - INFO - Обновлены провайдеры моделей: 1 провайдеров
+2025-03-22 18:30:12,741 - telethon.client.updates - INFO - Got difference for channel 2099636264 updates
+2025-03-22 18:30:47,792 - telethon.client.updates - INFO - Got difference for channel 1706364541 updates
+2025-03-22 18:31:14,419 - __main__ - INFO - Пользователь 7241965595 запросил обновление каналов
+2025-03-22 18:31:25,391 - __main__ - INFO - Пользователь 7241965595 запросил обновление каналов
+2025-03-22 18:31:28,805 - __main__ - INFO - Получен ввод дней от пользователя 7241965595: 1
+2025-03-22 18:31:28,805 - __main__ - INFO - Начало обновления данных каналов за 1 дней
+2025-03-22 18:31:28,951 - __main__ - INFO - Обновление канала 1639833661: GitHub Community
+2025-03-22 18:31:42,537 - telethon.client.updates - INFO - Got difference for account updates
+2025-03-22 18:32:05,287 - telethon.client.updates - INFO - Got difference for channel 2045504055 updates
+2025-03-22 18:32:27,502 - __main__ - INFO - Получен callback_data: political_analysis_situation_analysis
+2025-03-22 18:32:27,502 - __main__ - INFO - Разобранные данные: категория=political_analysis, действие=situation_analysis
+2025-03-22 18:32:27,502 - __main__ - INFO - Получен текст промпта длиной 224 символов
+2025-03-22 18:32:36,992 - __main__ - INFO - Получен ввод от пользователя 7241965595 для анализа
+2025-03-22 18:32:36,993 - __main__ - INFO - Категория: political_analysis, Действие: situation_analysis
+2025-03-22 18:32:36,993 - __main__ - INFO - Используется модель: anthropic/claude-2.0
+2025-03-22 18:32:37,125 - __main__ - INFO - Сбор данных из каналов
+2025-03-22 18:32:37,125 - __main__ - INFO - Обработано каналов: 0
+2025-03-22 18:32:37,126 - __main__ - INFO - Отправка запроса к AI
+2025-03-22 18:32:37,260 - ai_service - INFO - Отправка запроса к OpenRouter API с моделью anthropic/claude-2.0
+2025-03-22 18:32:39,615 - __main__ - INFO - Получен ввод от пользователя 7241965595 для анализа
+2025-03-22 18:32:39,615 - __main__ - INFO - Категория: political_analysis, Действие: situation_analysis
+2025-03-22 18:32:39,616 - __main__ - INFO - Используется модель: anthropic/claude-2.0
+2025-03-22 18:32:39,757 - __main__ - INFO - Сбор данных из каналов
+2025-03-22 18:32:39,757 - __main__ - INFO - Обработано каналов: 0
+2025-03-22 18:32:39,757 - __main__ - INFO - Отправка запроса к AI
+2025-03-22 18:32:39,873 - ai_service - INFO - Отправка запроса к OpenRouter API с моделью anthropic/claude-2.0
+2025-03-22 18:32:42,991 - ai_service - INFO - Структура ответа API: {'id': 'gen-1742657557-T9UfcydeTFHUHESMrHO0', 'provider': 'Anthropic', 'model': 'anthropic/claude-2.0', 'object': 'chat.completion', 'created': 1742657557, 'choices': [{'logprobs': None, 'finish_reason': 'stop', 'native_finish_reason': 'stop', 'index': 0, 'message': {'role': 'assistant', 'content': 'Извините, но вы не предоставили данных для анализа текущей политической ситуации. Без конкретной информации я не могу дать развернутый анализ. Если вы готовы предоставить необходимые данные, такие как результаты опросов, статистику, отчеты и т.д., я буду рад проанализировать их и ответить на ваш запрос. Пожалуйста, уточните, какие именно данные вы хотели бы, чтобы я проанализировал.', 'refusal': None}}], 'usage': {'prompt_tokens': 209, 'completion_tokens': 182, 'total_tokens': 391}}
+2025-03-22 18:32:43,051 - __main__ - INFO - Получен ответ от AI
+2025-03-22 18:32:45,650 - __main__ - INFO - Ответ успешно отправлен пользователю 7241965595
+2025-03-22 18:32:45,650 - __main__ - INFO - Обработка завершена для пользователя 7241965595
+2025-03-22 18:32:51,396 - ai_service - INFO - Структура ответа API: {'id': 'gen-1742657560-kySu93YQhsUnyAqFbVkb', 'provider': 'Anthropic', 'model': 'anthropic/claude-2.0', 'object': 'chat.completion', 'created': 1742657560, 'choices': [{'logprobs': None, 'finish_reason': 'stop', 'native_finish_reason': 'stop', 'index': 0, 'message': {'role': 'assistant', 'content': 'К сожалению, у меня нет конкретных данных для анализа текущей политической ситуации. Чтобы предоставить подробный анализ, мне необходимы данные по следующим параметрам:\n\n- Результаты опросов общественного мнения - показатели одобрения политиков, рейтинги партий, отношение к ключевым вопросам\n\n- Статистика по ключевым экономическим и социальным показателям - ВВП, инфляция, безработица, доходы населения и т.д. \n\n- Данные социологических исследований о настроениях в обществе\n\n- Информация о предстоящих выборах и рейтингах кандидатов\n\n- Аналитика СМИ и экспертные оценки политической ситуации\n\n- Информация о деятельности и заявлениях политических партий и лидеров\n\n- Данные о протестных настроениях и акциях\n\nБез конкретных входных данных я не могу дать объективный и подробный анализ текущей политической ситуации. Если у Вас есть доступ к такой информации, я буду рад проанализировать ее и предоставить развернутый ответ.', 'refusal': None}}], 'usage': {'prompt_tokens': 210, 'completion_tokens': 461, 'total_tokens': 671}}
+2025-03-22 18:32:51,462 - __main__ - INFO - Получен ответ от AI
+2025-03-22 18:32:52,182 - __main__ - INFO - Ответ успешно отправлен пользователю 7241965595
+2025-03-22 18:32:52,182 - __main__ - INFO - Обработка завершена для пользователя 7241965595
+2025-03-22 18:33:09,488 - __main__ - INFO - ✅ Успешно обновлен канал 1639833661: Собрано 99 сообщений из канала GitHub Community
+2025-03-22 18:33:11,724 - __main__ - INFO - Обновление завершено: ✅ Обновление завершено в 18:33:11
+
+📊 Статистика:
+• Всего каналов: 1
+• Успешно обновлено: 1
+• Ошибок: 0
+• Период: 1 дней
+2025-03-22 18:33:23,645 - telethon.client.updates - INFO - Got difference for account updates
+2025-03-22 18:33:36,608 - telethon.client.updates - INFO - Got difference for channel 1617506819 updates
+2025-03-22 18:33:37,327 - __main__ - INFO - Остановка бота...
+2025-03-22 18:33:37,327 - telethon.network.mtprotosender - INFO - Disconnecting from 149.154.167.51:443/TcpFull...
+2025-03-22 18:33:37,328 - telethon.network.mtprotosender - INFO - Disconnection from 149.154.167.51:443/TcpFull complete!
+2025-03-22 18:33:37,331 - __main__ - INFO - ✅ Telethon клиент остановлен
+2025-03-22 18:33:37,331 - __main__ - INFO - ✅ Бот успешно остановлен
+2025-03-22 18:33:37,332 - aiogram.dispatcher.dispatcher - INFO - Stop polling...
+2025-03-22 18:33:37,332 - aiogram - WARNING - Goodbye!
+2025-03-22 18:37:04,117 - aiogram - INFO - Bot: v0 UserBot_1734901968 [@v0_userbot_1734901971_bot]
+2025-03-22 18:37:04,223 - aiogram - WARNING - Updates were skipped successfully.
+2025-03-22 18:37:04,223 - __main__ - INFO - Запуск бота...
+2025-03-22 18:37:04,223 - telethon.network.mtprotosender - INFO - Connecting to 149.154.167.51:443/TcpFull...
+2025-03-22 18:37:04,271 - telethon.network.mtprotosender - INFO - Connection to 149.154.167.51:443/TcpFull complete!
+2025-03-22 18:37:04,752 - __main__ - INFO - ✅ Telethon клиент успешно запущен
+2025-03-22 18:37:05,024 - ai_service - INFO - Получено 278 моделей от OpenRouter API
+2025-03-22 18:37:05,025 - ai_service - INFO - Установлена модель по умолчанию: anthropic/claude-3.5-haiku-20241022:beta
+2025-03-22 18:37:05,025 - ai_service - INFO - Обновлены провайдеры моделей: 1 провайдеров
+2025-03-22 18:37:05,025 - __main__ - INFO - Модели успешно обновлены, установлена модель по умолчанию: anthropic/claude-3-haiku
+2025-03-22 18:37:05,025 - __main__ - INFO - ✅ Бот успешно запущен и готов к работе
+2025-03-22 18:37:05,025 - aiogram.dispatcher.dispatcher - INFO - Start polling.
+2025-03-22 18:37:46,170 - aiogram.dispatcher.dispatcher - ERROR - Cause exception while getting updates.
+Traceback (most recent call last):
+  File "/home/derxywat/NEWSbot/venv3.11/lib64/python3.11/site-packages/aiohttp/connector.py", line 980, in _wrap_create_connection
+    return await self._loop.create_connection(*args, **kwargs)  # type: ignore[return-value]  # noqa
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib64/python3.11/asyncio/base_events.py", line 1086, in create_connection
+    raise exceptions[0]
+  File "/usr/lib64/python3.11/asyncio/base_events.py", line 1070, in create_connection
+    sock = await self._connect_sock(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib64/python3.11/asyncio/base_events.py", line 974, in _connect_sock
+    await self.sock_connect(sock, address)
+  File "/usr/lib64/python3.11/asyncio/selector_events.py", line 638, in sock_connect
+    return await fut
+           ^^^^^^^^^
+  File "/usr/lib64/python3.11/asyncio/selector_events.py", line 646, in _sock_connect
+    sock.connect(address)
+OSError: [Errno 101] Network is unreachable
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/derxywat/NEWSbot/venv3.11/lib64/python3.11/site-packages/aiogram/bot/api.py", line 139, in make_request
+    async with session.post(url, data=req, **kwargs) as response:
+  File "/home/derxywat/NEWSbot/venv3.11/lib64/python3.11/site-packages/aiohttp/client.py", line 1141, in __aenter__
+    self._resp = await self._coro
+                 ^^^^^^^^^^^^^^^^
+  File "/home/derxywat/NEWSbot/venv3.11/lib64/python3.11/site-packages/aiohttp/client.py", line 536, in _request
+    conn = await self._connector.connect(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/derxywat/NEWSbot/venv3.11/lib64/python3.11/site-packages/aiohttp/connector.py", line 540, in connect
+    proto = await self._create_connection(req, traces, timeout)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/derxywat/NEWSbot/venv3.11/lib64/python3.11/site-packages/aiohttp/connector.py", line 901, in _create_connection
+    _, proto = await self._create_direct_connection(req, traces, timeout)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/derxywat/NEWSbot/venv3.11/lib64/python3.11/site-packages/aiohttp/connector.py", line 1209, in _create_direct_connection
+    raise last_exc
+  File "/home/derxywat/NEWSbot/venv3.11/lib64/python3.11/site-packages/aiohttp/connector.py", line 1178, in _create_direct_connection
+    transp, proto = await self._wrap_create_connection(
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/derxywat/NEWSbot/venv3.11/lib64/python3.11/site-packages/aiohttp/connector.py", line 988, in _wrap_create_connection
+    raise client_error(req.connection_key, exc) from exc
+aiohttp.client_exceptions.ClientConnectorError: Cannot connect to host api.telegram.org:443 ssl:default [Network is unreachable]
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/derxywat/NEWSbot/venv3.11/lib64/python3.11/site-packages/aiogram/dispatcher/dispatcher.py", line 382, in start_polling
+    updates = await self.bot.get_updates(
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/derxywat/NEWSbot/venv3.11/lib64/python3.11/site-packages/aiogram/bot/bot.py", line 110, in get_updates
+    result = await self.request(api.Methods.GET_UPDATES, payload)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/derxywat/NEWSbot/venv3.11/lib64/python3.11/site-packages/aiogram/bot/base.py", line 236, in request
+    return await api.make_request(await self.get_session(), self.server, self.__token, method, data, files,
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/derxywat/NEWSbot/venv3.11/lib64/python3.11/site-packages/aiogram/bot/api.py", line 142, in make_request
+    raise exceptions.NetworkError(f"aiohttp client throws an error: {e.__class__.__name__}: {e}")
+aiogram.utils.exceptions.NetworkError: Aiohttp client throws an error: ClientConnectorError: Cannot connect to host api.telegram.org:443 ssl:default [Network is unreachable]
+2025-03-22 18:37:48,643 - __main__ - INFO - Остановка бота...
+2025-03-22 18:37:48,643 - telethon.network.mtprotosender - INFO - Disconnecting from 149.154.167.51:443/TcpFull...
+2025-03-22 18:37:48,644 - telethon.network.mtprotosender - INFO - Disconnection from 149.154.167.51:443/TcpFull complete!
+2025-03-22 18:37:48,649 - __main__ - INFO - ✅ Telethon клиент остановлен
+2025-03-22 18:37:48,649 - __main__ - INFO - ✅ Бот успешно остановлен
+2025-03-22 18:37:48,649 - aiogram.dispatcher.dispatcher - INFO - Stop polling...
+2025-03-22 18:37:48,649 - aiogram - WARNING - Goodbye!
+2025-03-22 18:38:57,875 - aiogram - INFO - Bot: v0 UserBot_1734901968 [@v0_userbot_1734901971_bot]
+2025-03-22 18:38:57,962 - aiogram - WARNING - Updates were skipped successfully.
+2025-03-22 18:38:57,962 - __main__ - INFO - Запуск бота...
+2025-03-22 18:38:57,962 - telethon.network.mtprotosender - INFO - Connecting to 149.154.167.51:443/TcpFull...
+2025-03-22 18:38:58,012 - telethon.network.mtprotosender - INFO - Connection to 149.154.167.51:443/TcpFull complete!
+2025-03-22 18:38:58,775 - __main__ - INFO - ✅ Telethon клиент успешно запущен
+2025-03-22 18:38:58,998 - ai_service - INFO - Получено 278 моделей от OpenRouter API
+2025-03-22 18:38:58,999 - ai_service - INFO - Установлена модель по умолчанию: anthropic/claude-3.5-haiku-20241022:beta
+2025-03-22 18:38:58,999 - ai_service - INFO - Обновлены провайдеры моделей: 1 провайдеров
+2025-03-22 18:38:58,999 - __main__ - INFO - Модели успешно обновлены, установлена модель по умолчанию: anthropic/claude-3-haiku
+2025-03-22 18:38:58,999 - __main__ - INFO - ✅ Бот успешно запущен и готов к работе
+2025-03-22 18:38:59,000 - aiogram.dispatcher.dispatcher - INFO - Start polling.
+2025-03-22 18:39:27,298 - __main__ - INFO - Остановка бота...
+2025-03-22 18:39:27,299 - telethon.network.mtprotosender - INFO - Disconnecting from 149.154.167.51:443/TcpFull...
+2025-03-22 18:39:27,299 - telethon.network.mtprotosender - INFO - Disconnection from 149.154.167.51:443/TcpFull complete!
+2025-03-22 18:39:27,304 - __main__ - INFO - ✅ Telethon клиент остановлен
+2025-03-22 18:39:27,304 - __main__ - INFO - ✅ Бот успешно остановлен
+2025-03-22 18:39:27,305 - aiogram.dispatcher.dispatcher - INFO - Stop polling...
+2025-03-22 18:39:27,305 - aiogram - WARNING - Goodbye!

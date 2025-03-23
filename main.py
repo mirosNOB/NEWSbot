@@ -19,6 +19,8 @@ import asyncio
 from aiogram.types import InlineKeyboardMarkup, InlineKeyboardButton
 from aiogram.dispatcher.handler import CancelHandler
 from aiogram.dispatcher.middlewares import BaseMiddleware
+# Импортируем модуль для веб-поиска
+from web_search import generate_search_query, perform_web_search
 
 # Настройка логирования
 logging.basicConfig(
@@ -59,6 +61,7 @@ class Form(StatesGroup):
     waiting_for_admin_id = State()  # Для добавления админа
     waiting_for_broadcast = State()  # Для рассылки
     waiting_for_model_id = State()  # Для ввода ID модели
+    waiting_for_web_search_confirmation = State()  # Для подтверждения использования веб-поиска
 
 # Функция для сохранения настроек пользователя
 async def save_user_settings(user_id: int, settings: dict):
@@ -67,11 +70,14 @@ async def save_user_settings(user_id: int, settings: dict):
 
 # Функция для загрузки настроек пользователя
 async def load_user_settings(user_id: int) -> dict:
-    try:
-        with open(os.path.join(USERS_DIR, f"{user_id}.json"), 'r', encoding='utf-8') as f:
-            return json.load(f)
-    except:
-        return {}
+    settings_file = os.path.join(USERS_DIR, f"{user_id}.json")
+    if os.path.exists(settings_file):
+        try:
+            with open(settings_file, 'r', encoding='utf-8') as f:
+                return json.load(f)
+        except json.JSONDecodeError:
+            return {'ai_settings': {'model': DEFAULT_AI_MODEL}, 'web_search_enabled': False}
+    return {'ai_settings': {'model': DEFAULT_AI_MODEL}, 'web_search_enabled': False}
 
 # Клавиатуры
 def get_main_keyboard():
@@ -870,188 +876,318 @@ async def process_main_menu(callback_query: types.CallbackQuery):
 
 @dp.callback_query_handler(lambda c: any(c.data.startswith(f"{cat}_") for cat in BUTTON_TO_CATEGORY.values()))
 async def process_action_selection(callback_query: types.CallbackQuery, state: FSMContext):
-    """Обработчик выбора конкретного действия в категории"""
-    try:
-        # Логируем полученные данные
-        logger.info(f"Получен callback_data: {callback_query.data}")
+    """Обработчик выбора действия в категории"""
+    action = callback_query.data
+    
+    # Получаем категорию действия
+    category = next((cat for cat in BUTTON_TO_CATEGORY.values() if action.startswith(f"{cat}_")), None)
+    
+    # Для политического анализа автоматически включаем комбинированный поиск без запроса
+    if category == "political_analysis":
+        user_id = callback_query.from_user.id
+        user_settings = await load_user_settings(user_id)
         
-        # Находим категорию и действие
-        for category_name, category_key in BUTTON_TO_CATEGORY.items():
-            if callback_query.data.startswith(f"{category_key}_"):
-                category = category_key
-                action_key = callback_query.data[len(category_key) + 1:]
-                break
-        else:
-            logger.error(f"Не удалось определить категорию из callback_data: {callback_query.data}")
-            await callback_query.answer("Ошибка: неверный формат данных")
-            return
+        # Автоматически включаем комбинированный режим веб-поиска
+        await state.update_data(
+            action=action, 
+            web_search_enabled=True, 
+            openrouter_web_search=True,
+            combined_search=True
+        )
+        
+        # Сохраняем настройки пользователя для веб-поиска
+        user_settings['web_search_enabled'] = True
+        user_settings['openrouter_web_search'] = True
+        user_settings['combined_search'] = True
+        await save_user_settings(user_id, user_settings)
+        
+        # Сообщаем пользователю об автоматической активации поиска
+        await bot.send_message(
+            callback_query.from_user.id,
+            "🌐 Автоматически включен комбинированный режим веб-поиска для получения актуальной информации.",
+            parse_mode="HTML"
+        )
+        
+        # Обрабатываем выбранное действие напрямую
+        await process_action_without_web_search(callback_query, state, action)
+        return
+    
+    # Обычная обработка для других категорий
+    await process_action_without_web_search(callback_query, state, action)
 
-        logger.info(f"Разобранные данные: категория={category}, действие={action_key}")
-
-        # Проверяем наличие категории в промптах
-        if category not in prompts:
-            logger.error(f"Категория {category} не найдена в промптах. Доступные категории: {list(prompts.keys())}")
-            await callback_query.answer("Категория не найдена")
-            return
-
-        # Проверяем наличие действия в промптах
-        if action_key not in prompts[category]:
-            logger.error(f"Действие {action_key} не найдено в категории {category}. Доступные действия: {list(prompts[category].keys())}")
-            await callback_query.answer("Действие не найдено")
-            return
-
-        # Сохраняем данные в состояние
-        await state.update_data(category=category, action=action_key)
-        await Form.waiting_for_input.set()
-
-        # Получаем текст промпта
-        prompt_text = prompts[category][action_key]
-        logger.info(f"Получен текст промпта длиной {len(prompt_text)} символов")
-
-        # Находим отображаемое имя действия из маппинга
-        actions_map = {
-            "political_analysis": {
-                "situation_analysis": "Анализ ситуации",
-                "forecast": "Прогноз развития",
-                "swot": "SWOT анализ"
-            },
-            "image_formation": {
-                "pr_campaign": "PR кампания",
-                "media_advice": "Медиа",
-                "success_cases": "Примеры"
-            },
-            "media_relations": {
-                "press_release": "Пресс-релиз",
-                "interview": "Интервью"
-            },
-            "crisis_management": {
-                "action_plan": "План действий",
-                "legal_advice": "Юристы",
-                "case_studies": "Примеры"
-            }
+async def process_action_without_web_search(callback_query: types.CallbackQuery, state: FSMContext, action: str):
+    """Обработка выбора действия без предложения веб-поиска"""
+    # Получаем категорию из действия
+    category = next((cat for cat in BUTTON_TO_CATEGORY.values() if action.startswith(f"{cat}_")), None)
+    
+    if not category:
+        await bot.send_message(callback_query.from_user.id, "Ошибка: неизвестная категория.")
+        return
+    
+    # Загружаем промпты
+    prompts = load_prompts()
+    
+    # Извлекаем ключ действия из полного action
+    action_key = action[len(category) + 1:] if action.startswith(f"{category}_") else action
+    
+    # Проверяем наличие категории в промптах
+    if category not in prompts:
+        await bot.send_message(callback_query.from_user.id, f"Ошибка: категория {category} не найдена.")
+        return
+    
+    # Проверяем наличие действия в промптах
+    if action_key not in prompts[category]:
+        await bot.send_message(callback_query.from_user.id, f"Ошибка: действие {action_key} не найдено.")
+        return
+    
+    # Получаем текст промпта и информацию для отображения
+    prompt_text = prompts[category][action_key]
+    
+    # Определяем отображаемое имя действия
+    actions_map = {
+        "political_analysis": {
+            "situation_analysis": "Анализ ситуации",
+            "forecast": "Прогноз развития",
+            "swot": "SWOT анализ"
+        },
+        "image_formation": {
+            "pr_campaign": "PR кампания",
+            "media_advice": "Медиа советы",
+            "success_cases": "Примеры успеха"
+        },
+        "media_relations": {
+            "press_release": "Пресс-релиз",
+            "interview": "Интервью",
+            "media_kit": "Медиа-кит"
+        },
+        "crisis_management": {
+            "action_plan": "План действий",
+            "legal_advice": "Юридические советы",
+            "case_studies": "Разбор кейсов"
         }
-        
-        display_name = actions_map.get(category, {}).get(action_key, action_key)
+    }
+    
+    display_name = actions_map.get(category, {}).get(action_key, action_key.capitalize())
+    
+    # Сохраняем данные в состоянии
+    await state.update_data(prompt=prompt_text, title=display_name)
+    
+    # Переходим к вводу данных
+    await Form.waiting_for_input.set()
+    
+    # Отправляем инструкцию пользователю
+    keyboard = get_input_keyboard()
+    await bot.send_message(
+        callback_query.from_user.id,
+        f"📝 <b>{display_name}</b>\n\n"
+        f"Введите текст для анализа, или нажмите кнопку для загрузки данных из канала:",
+        reply_markup=keyboard,
+        parse_mode="HTML"
+    )
 
-        # Формируем информативное сообщение
-        message_text = (
-            f"*{display_name}*\n\n"
-            f"{prompt_text}\n\n"
-            "Отправьте необходимую информацию одним сообщением.\n"
-            "Для отмены нажмите /cancel"
-        )
-
-        # Отправляем сообщение
-        await callback_query.message.edit_text(
-            message_text,
-            parse_mode="Markdown"
-        )
-
-    except Exception as e:
-        logger.error(f"Ошибка при обработке действия: {str(e)}", exc_info=True)
-        await callback_query.answer("Произошла ошибка при обработке действия")
-    finally:
-        await callback_query.answer()
+@dp.callback_query_handler(lambda c: c.data.startswith("web_search_"), state=Form.waiting_for_web_search_confirmation)
+async def process_web_search_choice(callback_query: types.CallbackQuery, state: FSMContext):
+    """Обработчик выбора использования веб-поиска"""
+    choice = callback_query.data.split("_")[1]
+    
+    # Получаем сохраненное действие
+    data = await state.get_data()
+    action = data.get('action')
+    
+    if not action:
+        await bot.send_message(callback_query.from_user.id, "Ошибка: действие не найдено.")
+        return
+    
+    # Устанавливаем режим веб-поиска по умолчанию - теперь всегда комбинированный
+    await state.update_data(web_search_enabled=True, openrouter_web_search=True, combined_search=True)
+    await bot.send_message(
+        callback_query.from_user.id,
+        "🌐 Включен комбинированный режим поиска (локальный + OpenRouter API). Бот будет использовать все доступные источники для получения актуальной информации."
+    )
+    
+    # Теперь обрабатываем выбранное действие как обычно
+    await process_action_without_web_search(callback_query, state, action)
 
 @dp.message_handler(state=Form.waiting_for_input)
 async def process_input(message: types.Message, state: FSMContext):
-    """Обработчик ввода пользователя для анализа"""
-    # Добавляем явную проверку на команду /cancel
-    if message.text.startswith('/cancel'):
-        await state.finish()
-        await message.answer("❌ Действие отменено", reply_markup=get_main_keyboard())
+    """Обработчик ввода данных для анализа"""
+    # Получаем данные из состояния
+    data = await state.get_data()
+    prompt_text = data.get('prompt')
+    web_search_enabled = data.get('web_search_enabled', False)
+    openrouter_web_search = data.get('openrouter_web_search', False)
+    combined_search = data.get('combined_search', False)
+    
+    user_id = message.from_user.id
+    user_settings = await load_user_settings(user_id)
+    
+    # Добавляем информацию о типе веб-поиска в настройки пользователя
+    if 'ai_settings' not in user_settings:
+        user_settings['ai_settings'] = {}
+    user_settings['web_search_enabled'] = web_search_enabled
+    user_settings['openrouter_web_search'] = openrouter_web_search
+    user_settings['combined_search'] = combined_search
+    await save_user_settings(user_id, user_settings)
+    
+    # Проверяем, есть ли текст от пользователя
+    if not message.text or message.text in ["❌ Отмена", "✅ Готово"]:
+        await message.reply("Пожалуйста, введите текст для анализа.")
         return
-        
-    logger.info(f"Получен ввод от пользователя {message.from_user.id} для анализа")
+    
+    # Логируем запрос пользователя
+    logger.info(f"Пользователь {user_id} отправил запрос: {message.text[:50]}...")
+    
+    # Отправляем сообщение, что бот печатает
+    stop_typing_event = asyncio.Event()
+    typing_task = asyncio.create_task(show_typing_status(message.chat.id, bot, stop_typing_event))
+    
     try:
-        data = await state.get_data()
-        category = data.get('category')
-        action = data.get('action')
+        # Подготовка данных для запроса
+        user_input = message.text.strip()
         
-        logger.info(f"Категория: {category}, Действие: {action}")
+        # Результаты веб-поиска
+        web_search_results = None
+        openrouter_search_results = None
         
-        prompt_text = prompts[category][action]
-        user_id = str(message.from_user.id)
-        current_model = user_models.get(user_id, DEFAULT_PROVIDERS[0]['models'][0])
+        # Автоматически генерируем поисковый запрос на основе ввода пользователя
+        search_query = generate_search_query(user_input, prompt_text)
+        logger.info(f"Автоматически сгенерирован поисковый запрос: {search_query}")
         
-        logger.info(f"Используется модель: {current_model}")
-        processing_msg = await message.answer("🔄 Обрабатываю ваш запрос...")
-        
-        channel_data = ""
-        if channel_parser.channels:
-            logger.info("Сбор данных из каналов")
-            channels_processed = 0
-            for channel_id in channel_parser.channels:
-                channel_dir = os.path.join(CHANNELS_DIR, str(channel_id))
-                if os.path.exists(channel_dir):
-                    files = [f for f in os.listdir(channel_dir) if f.endswith('.json')]
-                    if files:
-                        latest_file = max(files)
-                        logger.info(f"Обработка файла {latest_file} для канала {channel_id}")
-                        with open(os.path.join(channel_dir, latest_file), 'r', encoding='utf-8') as f:
-                            messages = json.load(f)
-                            for msg in messages:
-                                channel_data += f"{msg['text']}\n\n"
-                        channels_processed += 1
-            logger.info(f"Обработано каналов: {channels_processed}")
-        
-        full_prompt = f"{prompt_text}\n\nВходные данные от пользователя:\n{message.text}"
-        if channel_data:
-            full_prompt += f"\n\nДанные из каналов:\n{channel_data}"
-        
-        logger.info("Отправка запроса к AI")
-        
-        # Создаем событие для остановки индикатора печати
-        typing_stop_event = asyncio.Event()
-        
-        # Запускаем фоновую задачу для показа индикатора печати
-        typing_task = asyncio.create_task(
-            show_typing_status(message.chat.id, message.bot, typing_stop_event)
-        )
-        
-        try:
-            # Выполняем запрос к AI
-            response = await try_gpt_request(
-                prompt=full_prompt,
-                posts_text=channel_data,
-                user_id=message.from_user.id,
-                bot=message.bot,
-                user_data={
-                    'ai_settings': {
-                        'model': current_model
-                    },
-                    'category': category,
-                    'action': action
-                }
-            )
-            logger.info("Получен ответ от AI")
-            
-        finally:
-            # В любом случае останавливаем индикатор печати
-            typing_stop_event.set()
+        # Выполняем локальный поиск, если включен
+        if web_search_enabled and (not openrouter_web_search or combined_search):
             try:
-                await typing_task
+                # Отправляем сообщение о выполнении поиска
+                search_status_msg = await message.reply("🔍 Выполняю локальный поиск в интернете...")
+                
+                # Выполняем поиск
+                web_search_results = perform_web_search(search_query)
+                
+                # Информируем пользователя о результатах
+                await search_status_msg.edit_text(
+                    f"🔍 Локальный поиск завершен. Найдено информации: {len(web_search_results)} символов."
+                )
+                
+                logger.info(f"Получены результаты локального поиска длиной {len(web_search_results)} символов")
+                
             except Exception as e:
-                logger.error(f"Ошибка при ожидании завершения задачи индикатора: {e}")
+                logger.error(f"Ошибка при выполнении локального веб-поиска: {str(e)}")
+                await message.reply(f"❌ Не удалось выполнить локальный поиск: {str(e)}")
         
-        await processing_msg.delete()
-        await message.answer(
-            f"✅ Результат анализа:\n\n{response}",
-            parse_mode="Markdown"
-        )
-        logger.info(f"Ответ успешно отправлен пользователю {message.from_user.id}")
+        # Для комбинированного режима, получаем отдельные результаты от OpenRouter API
+        if combined_search:
+            try:
+                # Выполняем расширенный запрос к API только для получения результатов поиска
+                # Функция для получения только результатов поиска через OpenRouter API
+                search_status_msg = await message.reply("⚡️ Выполняю поиск через OpenRouter API...")
+                
+                # Имитируем получение результатов поиска через OpenRouter
+                # Здесь будем сохранять результаты отдельно от локального поиска
+                # В реальном случае нужно реализовать отдельную функцию для получения только результатов поиска
+                # Пока используем заглушку
+                openrouter_search_results = f"Поисковый запрос: {search_query}\n\nРезультаты будут получены через API при выполнении запроса."
+                
+                # Информируем пользователя о результатах
+                await search_status_msg.edit_text(
+                    "⚡️ Поиск через OpenRouter API будет выполнен при обработке запроса."
+                )
+                
+            except Exception as e:
+                logger.error(f"Ошибка при подготовке поиска через OpenRouter API: {str(e)}")
+                await message.reply(f"❌ Не удалось выполнить поиск через OpenRouter API: {str(e)}")
         
+        # Автоматически проверяем наличие каналов для анализа
+        channels_data = None
+        try:
+            # Пытаемся найти и проанализировать каналы автоматически
+            channel_parser = ChannelParser()
+            await channel_parser.start()
+            
+            # Получаем список каналов
+            channels = channel_parser._load_channels()
+            
+            if channels:
+                channels_status_msg = await message.reply("📊 Выполняю автоматический анализ Telegram каналов...")
+                
+                # Анализируем последние посты из каналов
+                all_posts = []
+                for channel_id, channel_info in channels.items():
+                    try:
+                        result, data = await channel_parser.parse_channel(channel_id, days=3)
+                        if result:
+                            logger.info(f"Успешно собраны данные с канала {channel_info['title']}")
+                            all_posts.append(f"Канал: {channel_info['title']}")
+                            all_posts.append(f"Ссылка: {channel_info['link']}")
+                            all_posts.append(data)
+                    except Exception as e:
+                        logger.error(f"Ошибка при анализе канала {channel_id}: {str(e)}")
+                
+                if all_posts:
+                    channels_data = "\n\n".join(all_posts)
+                    await channels_status_msg.edit_text(
+                        f"📊 Анализ каналов завершен. Найдено данных: {len(channels_data)} символов."
+                    )
+                else:
+                    await channels_status_msg.edit_text("📊 Не удалось получить данные из каналов.")
+            
+            # Обязательно останавливаем клиент
+            await channel_parser.stop()
+            
+        except Exception as e:
+            logger.error(f"Ошибка при анализе каналов: {str(e)}")
+            # Не показываем ошибку пользователю, чтобы не перегружать интерфейс
+        
+        # Создаем запрос к AI
+        try:
+            # Добавляем примечание о бета-режиме, если он включен
+            search_type = ""
+            if combined_search:
+                search_type = "комбинированный (локальный + OpenRouter API)"
+            elif web_search_enabled and openrouter_web_search:
+                search_type = "OpenRouter API"
+            elif web_search_enabled:
+                search_type = "локальный DuckDuckGo"
+            
+            beta_note = ""
+            if web_search_enabled or openrouter_web_search or combined_search:
+                beta_note = f"\n\nПримечание: В этом запросе используется веб-поиск ({search_type}) для получения актуальной информации."
+            
+            # Добавляем данные каналов к запросу, если они есть
+            if channels_data:
+                user_input += f"\n\n===== ДАННЫЕ ИЗ TELEGRAM КАНАЛОВ =====\n{channels_data}"
+                beta_note += "\nТакже проведен автоматический анализ Telegram каналов."
+            
+            response = await try_gpt_request(
+                prompt=prompt_text + beta_note,
+                posts_text=user_input,
+                user_id=user_id,
+                bot=bot,
+                user_data=user_settings,
+                web_search_results=web_search_results,
+                openrouter_search_results=openrouter_search_results,
+                combined_search=combined_search
+            )
+            
+            # Останавливаем индикатор печати
+            stop_typing_event.set()
+            await typing_task
+            
+            # Отправляем ответ пользователю
+            await message.reply(response)
+            
+            # Сбрасываем состояние бота
+            await state.finish()
+            
+        except Exception as e:
+            logger.error(f"Ошибка при запросе к AI: {str(e)}")
+            await message.reply(f"❌ Ошибка при обработке запроса: {str(e)}")
+    
     except Exception as e:
-        error_msg = f"Ошибка при обработке ввода: {str(e)}"
-        logger.error(error_msg, exc_info=True)
-        await message.answer(
-            f"❌ Произошла ошибка при обработке запроса.\n"
-            f"Попробуйте еще раз или выберите другое действие.",
-            reply_markup=get_main_keyboard()
-        )
+        logger.error(f"Ошибка при обработке ввода: {str(e)}")
+        await message.reply(f"❌ Произошла ошибка: {str(e)}")
+    
     finally:
-        await state.finish()
-        logger.info(f"Обработка завершена для пользователя {message.from_user.id}")
+        # Гарантируем, что индикатор печати остановлен
+        stop_typing_event.set()
 
 @dp.message_handler(commands=['cancel'], state='*')
 async def cancel_action(message: types.Message, state: FSMContext):
@@ -1511,29 +1647,46 @@ dp.middleware.setup(AccessMiddleware())
 
 # Функция для инициализации бота и загрузки моделей
 async def on_startup(dp):
-    """Выполняется при запуске бота"""
-    logger.info("Запуск бота...")
+    """Действия при запуске бота"""
+    # Создаем необходимые директории
+    os.makedirs(USERS_DIR, exist_ok=True)
+    os.makedirs(CHANNELS_DIR, exist_ok=True)
     
-    # Запускаем клиент telethon
-    try:
-        await channel_parser.start()
-        logger.info("✅ Telethon клиент успешно запущен")
-    except Exception as e:
-        logger.error(f"❌ Ошибка при запуске Telethon клиента: {e}")
+    # Загружаем белый список пользователей
+    whitelist = load_whitelist()
+    logger.info(f"Загружен белый список: {len(whitelist)} пользователей")
     
-    # Загружаем доступные модели из OpenRouter API
+    # Загружаем список администраторов
+    admins = load_admins()
+    logger.info(f"Загружен список администраторов: {len(admins)} пользователей")
+    
+    # Загружаем промпты
+    prompts = load_prompts()
+    logger.info(f"Загружены промпты: {len(prompts)} категорий")
+    
+    # Обновляем список моделей Claude через OpenRouter API
     try:
+        logger.info("Подключение к OpenRouter API для загрузки списка моделей...")
         success = await update_available_models()
         if success:
-            # Обновляем список провайдеров для отображения
+            models_count = len(get_available_models())
+            logger.info(f"Успешно загружены {models_count} моделей Claude")
+            
+            # Обновляем структуру провайдеров для отображения
             update_default_providers()
-            logger.info(f"Модели успешно обновлены, установлена модель по умолчанию: {DEFAULT_MODEL}")
         else:
-            logger.warning("Не удалось обновить модели, используем предустановленные")
+            logger.warning("Не удалось загрузить модели Claude через API")
     except Exception as e:
-        logger.error(f"Ошибка при загрузке моделей Claude: {e}")
+        logger.error(f"Ошибка при загрузке моделей: {str(e)}")
     
-    logger.info("✅ Бот успешно запущен и готов к работе")
+    # Устанавливаем команды бота
+    await bot.set_my_commands([
+        types.BotCommand("start", "Начать использование бота"),
+        types.BotCommand("help", "Получить справку"),
+        types.BotCommand("cancel", "Отменить текущую операцию")
+    ])
+    
+    logger.info("Бот запущен и готов к работе!")
 
 # Обработчик завершения работы бота
 async def on_shutdown(dp):
@@ -1547,6 +1700,91 @@ async def on_shutdown(dp):
         
     logger.info("✅ Бот успешно остановлен")
 
+# Модифицируем функцию для автоматического анализа каналов
+async def parse_all_channels(user_id, days=3):
+    """Функция для автоматического анализа всех доступных каналов"""
+    try:
+        # Инициализируем парсер
+        channel_parser = ChannelParser()
+        await channel_parser.start()
+        
+        # Получаем список каналов
+        channels = channel_parser._load_channels()
+        
+        results = []
+        
+        # Обрабатываем каждый канал
+        for channel_id, channel_info in channels.items():
+            try:
+                logger.info(f"Автоанализ канала {channel_info['title']} для пользователя {user_id}")
+                success, data = await channel_parser.parse_channel(channel_id, days)
+                
+                if success:
+                    channel_data = {
+                        "title": channel_info['title'],
+                        "link": channel_info['link'],
+                        "data": data
+                    }
+                    results.append(channel_data)
+                    logger.info(f"Успешно проанализирован канал {channel_info['title']}")
+                else:
+                    logger.warning(f"Не удалось проанализировать канал {channel_info['title']}: {data}")
+            except Exception as e:
+                logger.error(f"Ошибка при автоанализе канала {channel_id}: {str(e)}")
+        
+        # Останавливаем парсер
+        await channel_parser.stop()
+        
+        return True, results
+    except Exception as e:
+        logger.error(f"Глобальная ошибка при автоанализе каналов: {str(e)}")
+        return False, str(e)
+
+# Модифицируем функцию для автоматического добавления каналов
+@dp.message_handler(lambda message: message.text and message.text.startswith(('https://t.me/', 't.me/')))
+async def auto_add_channel(message: types.Message):
+    """Автоматически добавляет каналы из ссылок в сообщениях"""
+    try:
+        # Проверяем права доступа
+        if not is_user_allowed(message.from_user.id):
+            return
+        
+        channel_link = message.text.strip()
+        
+        # Инициализируем парсер
+        channel_parser = ChannelParser()
+        await channel_parser.start()
+        
+        # Добавляем канал
+        success, result = await channel_parser.add_channel(channel_link)
+        
+        if success:
+            # Автоматически запускаем анализ добавленного канала
+            channel_id = list(channel_parser.channels.keys())[-1]  # ID последнего добавленного канала
+            parse_success, parse_result = await channel_parser.parse_channel(channel_id, days=3)
+            
+            if parse_success:
+                await message.reply(
+                    f"✅ {result}\n\n"
+                    f"📊 Автоматический анализ: {parse_result}"
+                )
+            else:
+                await message.reply(
+                    f"✅ {result}\n\n"
+                    f"❌ Не удалось выполнить автоматический анализ: {parse_result}"
+                )
+        else:
+            await message.reply(f"❌ {result}")
+        
+        # Останавливаем парсер
+        await channel_parser.stop()
+    except Exception as e:
+        logger.error(f"Ошибка при автоматическом добавлении канала: {str(e)}")
+        await message.reply(f"❌ Произошла ошибка: {str(e)}")
+
 if __name__ == '__main__':
-    # Запускаем бота с функцией при старте и завершении
+    # Создаем необходимые директории
+    os.makedirs('logs/web_search', exist_ok=True)
+    
+    # Запускаем бота
     executor.start_polling(dp, skip_updates=True, on_startup=on_startup, on_shutdown=on_shutdown) 

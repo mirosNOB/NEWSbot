@@ -4,5 +4,8 @@
   "setup_date": "2025-03-22T17:55:14.262900",
   "ai_settings": {
     "model": "anthropic/claude-2.0"
-  }
+  },
+  "web_search_enabled": true,
+  "openrouter_web_search": true,
+  "combined_search": true
 }

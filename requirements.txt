@@ -1,0 +1,10 @@
+aiogram==2.25.1
+python-dotenv==1.0.0
+openai==1.4.0
+python-telegram-bot==13.7
+aiohttp==3.8.5
+asyncio==3.4.3
+pyyaml==6.0.1
+telethon==1.32.0
+requests==2.32.3
+beautifulsoup4==4.13.3 

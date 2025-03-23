@@ -203,7 +203,7 @@ async def create_response_stream(kwargs: Dict, user_id: str) -> AsyncGenerator[s
         logger.error(error_msg)
         yield error_msg
 
-async def try_gpt_request(prompt: str, posts_text: str = "", user_id: int = None, bot=None, user_data: dict = None):
+async def try_gpt_request(prompt: str, posts_text: str = "", user_id: int = None, bot=None, user_data: dict = None, web_search_results: str = None, openrouter_search_results: str = None, combined_search: bool = False):
     """Отправка запроса к OpenRouter API через requests вместо OpenAI SDK"""
     try:
         # Получаем модель из user_data или используем модель по умолчанию
@@ -212,23 +212,81 @@ async def try_gpt_request(prompt: str, posts_text: str = "", user_id: int = None
         # Информация о модели
         model_info = get_model_by_id(selected_model_id)
         
+        # Информация о веб-поиске
+        web_search_info = ""
+        use_openrouter_web_search = user_data.get('openrouter_web_search', False)
+        
+        # Определяем тип поиска для отображения пользователю
+        if combined_search:
+            web_search_info = "\n🔍 Включен комбинированный режим веб-поиска (локальный + OpenRouter API)"
+            logger.info(f"Используется комбинированный режим поиска для пользователя {user_id}")
+        elif web_search_results:
+            web_search_info = f"\n🔍 Включен режим веб-поиска (локальный)"
+            logger.info(f"Используется локальный режим поиска для пользователя {user_id}")
+        elif use_openrouter_web_search:
+            web_search_info = f"\n🔍 Включен режим веб-поиска (OpenRouter API)"
+            logger.info(f"Используется режим поиска через OpenRouter API для пользователя {user_id}")
+        
         # Отправляем сообщение о начале анализа
         status_message = await bot.send_message(
             user_id,
             f"🔄 Начинаю анализ...\n"
             f"Размер данных: {len(posts_text)} символов\n"
             f"Выбранная модель: {model_info.get('name', selected_model_id)}"
+            f"{web_search_info}"
         )
         
         # Подготовка сообщений для API
+        system_message = "Ты мой личный ассистент для анализа данных. Ты всегда отвечаешь кратко и по делу, без лишних слов."
+        
+        # Добавляем инструкции для работы с веб-данными, если они есть
+        if web_search_results or openrouter_search_results or combined_search:
+            system_message += " Проанализируй предоставленные результаты веб-поиска и используй их в своем ответе. Будь объективным и опирайся на факты из найденных источников. Если разные источники противоречат друг другу, укажи на это."
+        
+        # Подготовка текста запроса
+        user_content = prompt
+        if posts_text:
+            user_content += f"\n\nДанные для анализа:\n{posts_text}"
+        
+        # Добавляем результаты веб-поиска, если они есть
+        if web_search_results:
+            logger.info(f"Добавление результатов локального поиска: {len(web_search_results)} символов")
+            user_content += f"\n\nРезультаты локального веб-поиска:\n{web_search_results}"
+            
+            # Сохраняем результаты поиска в лог-файл для дальнейшего анализа
+            try:
+                current_time = datetime.now().strftime("%Y%m%d_%H%M%S")
+                log_dir = os.path.join("logs", "web_search")
+                os.makedirs(log_dir, exist_ok=True)
+                with open(os.path.join(log_dir, f"search_log_{user_id}_{current_time}.txt"), "w", encoding="utf-8") as f:
+                    f.write(f"Запрос: {prompt}\n\n")
+                    f.write(f"Текст пользователя: {posts_text}\n\n")
+                    f.write(f"Результаты поиска:\n{web_search_results}")
+                logger.info(f"Результаты поиска сохранены в лог-файл для пользователя {user_id}")
+            except Exception as e:
+                logger.error(f"Ошибка при сохранении результатов поиска в лог: {e}")
+            
+        # Если у нас есть результаты от OpenRouter API (в комбинированном режиме)
+        if openrouter_search_results:
+            logger.info(f"Добавление результатов поиска OpenRouter API: {len(openrouter_search_results)} символов")
+            user_content += f"\n\nРезультаты поиска OpenRouter API:\n{openrouter_search_results}"
+        
         messages = [
-            {"role": "system", "content": "Ты мой личный ассистент для анализа данных. Ты всегда отвечаешь кратко и по делу, без лишних слов."},
-            {"role": "user", "content": f"{prompt}\n\nДанные для анализа:\n{posts_text}"}
+            {"role": "system", "content": system_message},
+            {"role": "user", "content": user_content}
         ]
         
         # Подготовка запроса к API
         try:
             logger.info(f"Отправка запроса к OpenRouter API с моделью {selected_model_id}")
+            
+            # Обновляем статусное сообщение о начале отправки запроса
+            await status_message.edit_text(
+                f"🔄 Отправка запроса к AI...\n"
+                f"Размер данных: {len(posts_text)} символов\n"
+                f"Выбранная модель: {model_info.get('name', selected_model_id)}"
+                f"{web_search_info}"
+            )
             
             headers = {
                 "Authorization": f"Bearer {OPENROUTER_API_KEY}",
@@ -237,12 +295,32 @@ async def try_gpt_request(prompt: str, posts_text: str = "", user_id: int = None
                 "X-Title": "Telegram News Bot"          # Название вашего приложения
             }
             
-            payload = {
-                "model": selected_model_id,
-                "messages": messages,
-                "temperature": 0.7,
-                "max_tokens": 2000
-            }
+            # Настраиваем payload в зависимости от наличия веб-поиска
+            if use_openrouter_web_search and not web_search_results and not openrouter_search_results:
+                # Только если мы еще не выполнили локальный поиск и не получили результаты,
+                # используем встроенный поиск OpenRouter API
+                payload = {
+                    "model": selected_model_id,
+                    "messages": messages,
+                    "temperature": 0.7,
+                    "max_tokens": 2000,
+                    "plugins": [
+                        {
+                            "id": "web",
+                            "max_results": 5,  # Максимальное количество результатов (по умолчанию 5)
+                            "search_prompt": "Веб-поиск был проведен. Используй следующие результаты поиска в своем ответе. ВАЖНО: Приводи ссылки на источники в формате [domain.com](https://domain.com/page)"
+                        }
+                    ]
+                }
+                logger.info("Использование веб-поиска через OpenRouter API")
+            else:
+                # Стандартный запрос (возможно, уже с добавленными результатами поиска)
+                payload = {
+                    "model": selected_model_id,
+                    "messages": messages,
+                    "temperature": 0.7,
+                    "max_tokens": 2000
+                }
             
             # Отправляем асинхронный запрос
             async with aiohttp.ClientSession() as session:
@@ -274,8 +352,10 @@ async def try_gpt_request(prompt: str, posts_text: str = "", user_id: int = None
                         logger.warning("Получен пустой content от API, использую резервный ответ")
                         assistant_response = "Извините, не удалось получить ответ от AI. Пожалуйста, попробуйте еще раз позже."
                     
-                    # Удаляем статусное сообщение и возвращаем ответ
-                    await status_message.delete()
+                    # Обновляем статусное сообщение с ответом вместо удаления
+                    await status_message.edit_text(assistant_response)
+                    
+                    # Возвращаем ответ для дальнейшей обработки
                     return assistant_response
             
         except aiohttp.ClientError as e:
